@@ -3,8 +3,6 @@ import { Request, Response } from 'express';
 
 import Videogame_Model from '@models/Videogames';
 
-import { VideogameAttributes } from '@services/Types_&_Interfaces/videogame-attributes';
-
 // /////////////////////////////////////
 async function postNewGame(req: Request, res: Response): Promise<void> {
 	const { name, description, price, generos } = req.body;
@@ -40,7 +38,29 @@ async function postNewGame(req: Request, res: Response): Promise<void> {
 ///////////////////////////////////////
 
 ///////////////////////////////////////
-async function getX(req: Request, res: Response) {}
+async function getAllGames(req: Request, res: Response) {
+	Videogame_Model.findAll({})
+		.then((games) => {
+			res.status(200).send({
+				response: true,
+				message: 'Los juegos han sido encontrados correctamente',
+				juegos: games,
+				status: {
+					codigo: 200,
+					msg: 'OK',
+				},
+			});
+			console.log(`todos los juegos: ${games}`);
+		})
+		.catch((err) => {
+			res.status(400).send({
+				respons: false,
+				message: 'Ocurrio un error al buscar los juegos',
+				errores: err,
+			});
+			console.log(err);
+		});
+}
 ///////////////////////////////////////
 
 ///////////////////////////////////////
@@ -55,4 +75,4 @@ async function deleteX(req: Request, res: Response) {}
 async function patchX(req: Request, res: Response) {}
 ///////////////////////////////////////
 
-export { getX, postNewGame, putX, deleteX, patchX };
+export { getAllGames, postNewGame, putX, deleteX, patchX };

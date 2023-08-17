@@ -7,7 +7,7 @@ router.get('/api', (req, res) => {
 	res.json({ message: 'Welcome to my API' });
 });
 
-router.get('/getX', controller.getX);
+router.get('/getAllGames', controller.getAllGames);
 
 router.post('/postNewGame', controller.postNewGame);
 
