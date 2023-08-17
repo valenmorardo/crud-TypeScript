@@ -8,7 +8,9 @@ router.get('/api', (req, res) => {
 });
 
 router.get('/getX', controller.getX);
-router.post('/postX', controller.postX);
+
+router.post('/postNewGame', controller.postNewGame);
+
 router.put('/putX', controller.putX);
 router.delete('/deleteX', controller.deleteX);
 router.patch('/patchX', controller.patchX);

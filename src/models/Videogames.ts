@@ -3,7 +3,7 @@ import Database from '@config/database';
 
 import { VideogameAttributes } from '@services/Types_&_Interfaces/videogame-attributes';
 
-const Videogames = Database.define<Model, VideogameAttributes>(
+const Videogame_Model = Database.define<Model, VideogameAttributes>(
 	'videogames',
 	{
 		id: {
@@ -25,7 +25,7 @@ const Videogames = Database.define<Model, VideogameAttributes>(
 			allowNull: false,
 		},
 		price: {
-			type: DataTypes.NUMBER,
+			type: DataTypes.FLOAT,
 			allowNull: false,
 		},
 		generos: {
@@ -38,4 +38,4 @@ const Videogames = Database.define<Model, VideogameAttributes>(
 	},
 );
 
-export default Videogames;
+export default Videogame_Model;

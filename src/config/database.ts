@@ -9,10 +9,13 @@ const Database = new Sequelize(
 	env.DB_NAME, // db name,
 	env.USERNAME_DB, // username
 	env.PASSWORD_DB, // password
+	
 	{
 		host: env.HOST,
 		dialect: 'postgres',
+		logging: false,
 	},
+	
 );
 
 export default Database;
