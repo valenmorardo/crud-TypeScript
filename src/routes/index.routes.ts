@@ -11,8 +11,8 @@ router.get('/getAllGames', controller.getAllGames);
 
 router.post('/postNewGame', controller.postNewGame);
 
-router.put('/putX', controller.putX);
-router.delete('/deleteX', controller.deleteX);
-router.patch('/patchX', controller.patchX);
+router.delete('/deleteAGame/:id', controller.deleteAGame);
+
+router.patch('/patchAGame/:id', controller.patchAGame);
 
 export default router;
