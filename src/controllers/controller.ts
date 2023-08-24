@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import Videogame_Model from '@models/Videogames';
 
 ///////////////////////////////////////
-async function postNewGame(req: Request, res: Response): Promise<void> {
+/* async function postNewGame(req: Request, res: Response): Promise<void> {
 	const { name, description, price, generos } = req.body;
 
 	Videogame_Model.create({
@@ -33,12 +33,12 @@ async function postNewGame(req: Request, res: Response): Promise<void> {
 				errores: err,
 			});
 		});
-}
+} */
 
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-async function getAllGames(req: Request, res: Response): Promise<void> {
+/* async function getAllGames(req: Request, res: Response): Promise<void> {
 	Videogame_Model.findAll({})
 		.then((games): Response => {
 			console.log(`todos los juegos: ${games}`);
@@ -60,13 +60,13 @@ async function getAllGames(req: Request, res: Response): Promise<void> {
 				errores: err,
 			});
 		});
-}
+} */
 
 ///////////////////////////////////////
 
 ///////////////////////////////////////
 
-async function deleteAGame(req: Request, res: Response): Promise<void> {
+/* async function deleteAGame(req: Request, res: Response): Promise<void> {
 	const gameID: string = req.params.id;
 
 	Videogame_Model.destroy({
@@ -105,11 +105,11 @@ async function deleteAGame(req: Request, res: Response): Promise<void> {
 				errores: err,
 			});
 		});
-}
+} */
 ///////////////////////////////////////
 
 ///////////////////////////////////////
-async function patchAGame(req: Request, res: Response): Promise<void> {
+/* async function patchAGame(req: Request, res: Response): Promise<void> {
 	const gameID: string = req.params.id;
 	const updatedFields: Object = req.body;
 
@@ -136,7 +136,11 @@ async function patchAGame(req: Request, res: Response): Promise<void> {
 				errores: err,
 			});
 		});
-}
+} */
 ///////////////////////////////////////
 
-export { getAllGames, postNewGame, deleteAGame, patchAGame };
+
+
+
+
+export { /* getAllGames, postNewGame, deleteAGame, patchAGame */ };

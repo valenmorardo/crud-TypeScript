@@ -10,7 +10,7 @@ enum genres_videogames {
 	Puzzle = 'Puzzle',
 }
 
-export interface VideogameAttributes {
+export interface IVideogameAttributes {
 	id: string;
 	name: string;
 	description: string;
