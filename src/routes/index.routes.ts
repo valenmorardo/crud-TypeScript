@@ -1,9 +1,9 @@
 import * as controller from '@controllers/controller';
 
 import { Router } from 'express';
-const router = Router();
+const router: Router = Router();
 
-router.get('/api', (req, res) => {
+router.get('/', (req, res) => {
 	res.json({ message: 'Welcome to my API' });
 });
 

@@ -1,12 +1,14 @@
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import express from 'express';
+import env from '@config/var-environments';
+import express, { Application } from 'express';
 import { Request, Response, NextFunction } from 'express';
 
-const server = express();
+const server: Application = express();
 
-// PARAMETROS DEL SERVER
-// cualquier peticion la converitmos en json
+
+server.set('port', env.PORT)
+
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(cookieParser());
@@ -34,8 +36,8 @@ server.use((req: Request, res: Response, next: NextFunction) => {
 
 
 import router from '@routes/index.routes';
-const allRoutes = router;
+const allRoutes: express.Router = router;
 
-server.use('/', allRoutes);
+server.use('/api', allRoutes);
 
 export default server;
