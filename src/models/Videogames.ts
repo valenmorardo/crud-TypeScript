@@ -1,10 +1,10 @@
 import { DataTypes, Model } from 'sequelize';
 import Database from '@config/database';
 
-import { VideogameAttributes } from '@services/Types_&_Interfaces/videogame-attributes';
+import { IVideogameAttributes } from '@services/Types_&_Interfaces/videogame-attributes';
 
-const Videogame_Model = Database.define<Model, VideogameAttributes>(
-	'videogames',
+const Videogame_Model = Database.define<Model, IVideogameAttributes>(
+	'videogame',
 	{
 		id: {
 			type: DataTypes.UUID,
