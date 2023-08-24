@@ -87,7 +87,8 @@
 			"@controllers/*": ["./src/controllers/*"],
 			"@config/*": ["./src/config/*"],
 			"@models/*": ["./src/models/*"],
-			"@services/*": ["./src/services/*"]
+			"@libs/*": ["./src/libs/*"],
+			"@middlewares/*": ["./src/middlewares/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./src/@types"],
 
