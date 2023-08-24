@@ -26,6 +26,10 @@ const User_Model = Database.define<Model, IUserAttributes> (
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     },
     {
