@@ -1,14 +1,17 @@
-import * as controller from '@controllers/allControllers';
+import * as controllers from '@controllers/allControllers';
+import * as validations from '@libs/validations/allValidations'
+import * as middlewares from '@middlewares/allMiddlewares.routes'
 
 import { Router } from 'express';
 const router: Router = Router();
 
-router.get('/', (req, res) => {
+
+router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my API' });
 });
 
-router.post('/register' /* controller.register */);
-router.post('/login' /* controller.login */);
+router.post('/register', validations.validateRegister, middlewares.encryptPassword, controllers.registerNewUser);
+router.post('/login'/* controller.login */);
 router.get('/profile' /* controller.profile */);
 
 router.post('/profile/postNewGame' /* controller.postNewGame */);
