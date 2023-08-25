@@ -27,7 +27,6 @@ export async function registerNewUser(req: Request, res: Response): Promise<void
         console.log(err);
         return res.status(500).send({
             user_created: false,
-            message: 'ocurrio un error inesperado',
             error_message: err,
             status: {
                 codigo: 500,
