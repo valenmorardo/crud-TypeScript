@@ -5,7 +5,7 @@ export async function encryptPassword(
 	req: Request,
 	_res: Response,
 	next: NextFunction,
-) {
+): Promise<void> {
 	const { password } = req.body;
 
 	const salt = await bcrypt.genSalt(8);
