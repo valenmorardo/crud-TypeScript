@@ -3,7 +3,7 @@ import Database from '@config/database';
 const connectDB = () => {
 	return new Promise<void>((resolve, reject) => {
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		Database.sync({ force: false })
+		Database.sync({ force: true })
 			.then(() => {
 				console.log('Base de datos - Conectada con éxito! :D');
 				resolve();
