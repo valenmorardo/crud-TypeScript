@@ -1,4 +1,3 @@
-const test: string = 'test'
+import { registerNewUser } from "./register-NewUser/register-NewUser.controller";
 
-
-export{test};
+export{registerNewUser};
