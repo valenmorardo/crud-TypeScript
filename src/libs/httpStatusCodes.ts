@@ -1,4 +1,6 @@
-export const httpStatusCodes = {
+import { IHttpStatusCodes } from "./Types_&_Interfaces/httpStatusCodes";
+
+export const httpStatusCodes: IHttpStatusCodes = {
     200: 'OK',
     201: 'Created',
     204: 'No Content',
@@ -11,4 +13,4 @@ export const httpStatusCodes = {
     501: 'Not Implemented',
     502: 'Bad Gateway',
     503: 'Service Unavailable',
-  };
+};
