@@ -6,7 +6,7 @@ export function validateRegister(
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) {
+): Response | void {
 	const { name, email, password } = req.body;
 
 	if (!validator.isAlpha(name)) {
