@@ -10,12 +10,12 @@ export async function registerNewUser(req: Request, res: Response): Promise<void
 
     
 
-    User_Model.create({
+    await User_Model.create({
         name: name.trim(),
         email,
         password: encryptedPassword,
     })
-    .then((newUser) => {
+    .then(() => {
         console.log('New user created!');
         return res.status(201).send({
             user_created: true,
