@@ -15,7 +15,6 @@ const User_Model = Database.define<Model, IUserAttributes> (
         },
         name: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false,
         },
         email: {
