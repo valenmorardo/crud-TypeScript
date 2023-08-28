@@ -1,5 +1,5 @@
-import { validateRegister } from "./register/register.validation";
-import { validateLogin } from "./login/login.validation";
-import { emailExists } from "./login/email-exists.validation";
+import { validateRegister } from "./register.validation";
+import { validateLogin } from "./login.validation";
+import { emailExists } from "./email-exists.validation";
 
 export {validateRegister, validateLogin, emailExists}
