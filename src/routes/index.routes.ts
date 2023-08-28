@@ -7,17 +7,19 @@ const router: Router = Router();
 
 
 router.get('/', (_req, res) => {
-	res.json({ message: 'Welcome to my API' });
+	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
 
 router.post('/register', validations.validateRegister, middlewares.encryptPassword, controllers.registerNewUser);
 router.post('/login'/* controller.login */);
-router.get('/profile' /* controller.profile */);
 
+router.get('/allGames')
+
+router.get('/profile' /* controller.profile */);
+router.get('/profile/myGames')
+router.delete('/profile/myGames/deleteAGame/:id' /* controller.deleteAGame */);
+router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
 router.post('/profile/postNewGame' /* controller.postNewGame */);
-router.get('/profile/getAllGames' /* controller.getAllGames */);
-router.delete('/profile/deleteAGame/:id' /* controller.deleteAGame */);
-router.patch('/profile/patchAGame/:id' /* controller.patchAGame */);
 
 router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
