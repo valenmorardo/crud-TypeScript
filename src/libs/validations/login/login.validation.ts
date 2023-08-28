@@ -6,7 +6,7 @@ export const validateLogin = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Response | void => {
 	const { email, password } = req.body;
 
 	if (!validator.isEmail(email)) {
