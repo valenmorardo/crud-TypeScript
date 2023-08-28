@@ -8,8 +8,10 @@ export async function registerNewUser(req: Request, res: Response): Promise<void
     const { name, email } = req.body
     const { encryptedPassword } = req
 
+    
+
     User_Model.create({
-        name,
+        name: name.trim(),
         email,
         password: encryptedPassword,
     })

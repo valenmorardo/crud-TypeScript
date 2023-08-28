@@ -9,7 +9,9 @@ export function validateRegisterFields(
 ): Response | void {
 	const { name, email, password } = req.body;
 
-	if (!validator.isAlpha(name)) {
+	const patron = /^[A-Za-z]+(\s[A-Za-z]+)*$/;
+
+	if (!patron.test(name.trim())) {
 		return res.status(400).send({
 			error_message: 'El nombre no es valido. Solo debe contener letras.',
 			status: {
