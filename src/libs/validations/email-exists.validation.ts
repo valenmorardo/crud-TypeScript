@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
-import validator from 'validator';
+
 
 import User_Model from '@models/User';
 
