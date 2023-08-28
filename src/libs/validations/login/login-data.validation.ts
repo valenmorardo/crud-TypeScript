@@ -15,15 +15,15 @@ export const validateLoginData = async (
 	const email_body: string = email;
 	const password_body: string = password;
 
-	const userFounded : IUserAttributes | null = await User_Model.findOne({
+	const userFounded: IUserAttributes | null = await User_Model.findOne({
 		where: { email: email_body },
 	}).then((user) => {
-		if(!user) {
-			return null
+		if (!user) {
+			return null;
 		} else {
-			return user.dataValues
+			return user.dataValues;
 		}
-	})
+	});
 
 	// check if that email is already exists in database
 	if (!userFounded) {
@@ -36,8 +36,6 @@ export const validateLoginData = async (
 			},
 		});
 	}
-
-	
 
 	//compare passwords
 	const passwordCheck: boolean = await bcrypt.compare(
@@ -55,5 +53,5 @@ export const validateLoginData = async (
 		});
 	}
 
-	return next()
+	return next();
 };
