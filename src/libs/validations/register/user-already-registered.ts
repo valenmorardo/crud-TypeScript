@@ -15,12 +15,12 @@ export const userAlreadyRegistered = async (
 	});
 
 	if (userFounded) {
-		return res.status(400).send({ 
+		return res.status(400).send({
 			message: 'Email already exists. Try to log in',
-			status:{
+			status: {
 				code: 400,
-				message: httpStatusCodes[400]
-			}
+				message: httpStatusCodes[400],
+			},
 		});
 	}
 
