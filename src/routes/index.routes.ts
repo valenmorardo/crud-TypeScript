@@ -1,5 +1,5 @@
 import * as controllers from '@controllers/allControllers';
-import * as validationsFields from '@libs/validations/allValidations'
+import * as validations from '@libs/validations/allValidations'
 import * as middlewares from '@middlewares/allMiddlewares.routes'
 
 import { Router } from 'express';
@@ -10,8 +10,8 @@ router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
 
-router.post('/register', validationsFields.validateRegister, middlewares.encryptPassword, controllers.registerNewUser);
-router.post('/login', validationsFields.validateLogin, );
+router.post('/register', validations.validateRegister, middlewares.encryptPassword, controllers.registerNewUser);
+router.post('/login', validations.validateLogin, );
 
 router.get('/allGames')
 
