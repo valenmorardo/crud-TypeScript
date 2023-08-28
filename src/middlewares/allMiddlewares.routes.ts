@@ -1,3 +1,3 @@
-import { encryptPassword } from "./register/encrypt-Password";
+import { encryptPassword } from "./encrypt-Password";
 
 export { encryptPassword }
