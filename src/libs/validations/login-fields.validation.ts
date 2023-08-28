@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 import validator from 'validator';
 
-export const validateLogin = (
+export const validateLoginFields = (
 	req: Request,
 	res: Response,
 	next: NextFunction,

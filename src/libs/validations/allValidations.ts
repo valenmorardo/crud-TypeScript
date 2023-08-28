@@ -1,5 +1,5 @@
-import { validateRegister } from "./register.validation";
-import { validateLogin } from "./login.validation";
+import { validateRegisterFields } from "./register-fields.validation";
+import { validateLoginFields } from "./login-fields.validation";
 import { emailExists } from "./email-exists.validation";
 
-export {validateRegister, validateLogin, emailExists}
+export {validateRegisterFields, validateLoginFields, emailExists}

@@ -10,8 +10,8 @@ router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
 
-router.post('/register', validations.validateRegister, middlewares.encryptPassword, controllers.registerNewUser);
-router.post('/login', validations.validateLogin, validations.emailExists, );
+router.post('/register', validations.validateRegisterFields, middlewares.encryptPassword, controllers.registerNewUser);
+router.post('/login', validations.validateLoginFields, validations.emailExists, );
 
 router.get('/allGames')
 

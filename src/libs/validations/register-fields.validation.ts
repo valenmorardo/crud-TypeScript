@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 import validator from 'validator';
 
-export function validateRegister(
+export function validateRegisterFields(
 	req: Request,
 	res: Response,
 	next: NextFunction,
