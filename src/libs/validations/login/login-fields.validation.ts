@@ -19,7 +19,7 @@ export const validateLoginFields = (
 		});
 	}
 
-	if (!validator.isEmpty(password)) {
+	if (validator.isEmpty(password)) {
 		return res.status(400).send({
 			error_message: 'la contraseña es obligatoria',
 			status: {
