@@ -4,6 +4,8 @@ import bcrypt from 'bcryptjs';
 
 import User_Model from '@models/User';
 
+import { IUserAttributes } from '@libs/Types_&_Interfaces/user-attributes';
+
 export const validateLoginData = async (
 	req: Request,
 	res: Response,
@@ -13,9 +15,15 @@ export const validateLoginData = async (
 	const email_body: string = email;
 	const password_body: string = password;
 
-	const userFounded = await User_Model.findOne({
+	const userFounded : IUserAttributes | null = await User_Model.findOne({
 		where: { email: email_body },
-	});
+	}).then((user) => {
+		if(!user) {
+			return null
+		} else {
+			return user.dataValues
+		}
+	})
 
 	// check if that email is already exists in database
 	if (!userFounded) {
@@ -32,9 +40,9 @@ export const validateLoginData = async (
 	
 
 	//compare passwords
-	const passwordCheck = await bcrypt.compare(
+	const passwordCheck: boolean = await bcrypt.compare(
 		password_body,
-		userFounded.dataValues.password,
+		userFounded.password,
 	);
 
 	if (!passwordCheck) {

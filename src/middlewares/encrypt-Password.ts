@@ -8,8 +8,8 @@ export async function encryptPassword(
 ): Promise<void> {
 	const { password } = req.body;
 
-	const salt = await bcrypt.genSalt(8);
-	const encryptedPassword = await bcrypt.hash(password, salt);
+	const salt: string = await bcrypt.genSalt(8);
+	const encryptedPassword: string = await bcrypt.hash(password, salt);
 
 	req.encryptedPassword = encryptedPassword;
 

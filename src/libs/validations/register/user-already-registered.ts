@@ -3,6 +3,7 @@ import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 import User_Model from '@models/User';
 
+
 export const userAlreadyRegistered = async (
 	req: Request,
 	res: Response,
@@ -10,8 +11,14 @@ export const userAlreadyRegistered = async (
 ) => {
 	const email_body: string = req.body.email;
 
-	const userFounded = await User_Model.findOne({
+	const userFounded: boolean = await User_Model.findOne({
 		where: { email: email_body },
+	}).then((user) => {
+		if (!user) {
+			return false;
+		} else {
+			return true;
+		}
 	});
 
 	if (userFounded) {
