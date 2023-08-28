@@ -11,8 +11,8 @@ export const emailExists = (
 ): Response | void => {
 	const { email_body } = req.body;
 
-	User_Model.findOne({ where: { email: email_body } }).then((email) => {
-		if (!email) {
+	User_Model.findOne({ where: { email: email_body } }).then((user) => {
+		if (!user) {
 			return res.status(400).send({
 				error_message:
 					'Couldn’t find an account associated with this email. Try again or create an account',
