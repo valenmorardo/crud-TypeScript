@@ -11,7 +11,7 @@ router.get('/', (_req, res) => {
 });
 
 router.post('/register', validations.validateRegisterFields, validations.userAlreadyRegistered, middlewares.encryptPassword, controllers.registerNewUser);
-router.post('/login', validations.validateLoginFields, validations.validateLoginData, );
+router.post('/login', validations.validateLoginFields, validations.validateLoginData, controllers.loginUser);
 
 router.get('/allGames')
 
