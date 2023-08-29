@@ -42,6 +42,7 @@ router.post('/profile/postNewGame' /* controller.postNewGame */);
 //~~~~~~~~~
 
 // home // all games
+router.use('/allGames', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify)
 router.get('/allGames');
 //~~~~~~~~~
 
