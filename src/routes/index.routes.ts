@@ -32,7 +32,7 @@ router.post(
 //~~~~~~~~~
 
 // Profile routes
-router.use('/profile', middlewares.verifyAuthToken);
+router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
 
 router.get('/profile'/* controller.profile */);
 router.get('/profile/myGames');
