@@ -35,10 +35,10 @@ router.post(
 router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
 
 router.get('/profile', controllers.profileUser);
+router.post('/profile/postNewGame' /* controller.postNewGame */);
 router.get('/profile/myGames');
 router.delete('/profile/myGames/deleteAGame/:id' /* controller.deleteAGame */);
 router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
-router.post('/profile/postNewGame' /* controller.postNewGame */);
 //~~~~~~~~~
 
 // home // all games

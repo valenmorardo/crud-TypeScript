@@ -28,7 +28,7 @@ const Videogame_Model = Database.define<Model, IVideogameAttributes>(
 			type: DataTypes.FLOAT,
 			allowNull: false,
 		},
-		generos: {
+		genres: {
 			type: DataTypes.ARRAY(DataTypes.STRING),
 			allowNull: false,
 		},

@@ -15,5 +15,5 @@ export interface IVideogameAttributes {
 	name: string;
 	description: string;
 	price: number;
-	generos: Array<genres_videogames>;
+	genres: Array<genres_videogames>;
 }
