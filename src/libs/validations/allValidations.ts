@@ -1,6 +1,6 @@
 //register stage
 import { validateRegisterFields } from './register/register-fields.validation';
-import { userAlreadyRegistered } from './register/user-already-registered';
+import { userAlreadyRegistered } from './register/user-already-registered.validation';
 
 // login stage
 import { validateLoginFields } from './login/login-fields.validation';
