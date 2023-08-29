@@ -6,8 +6,7 @@ import { Request, Response, NextFunction } from 'express';
 
 const server: Application = express();
 
-
-server.set('port', env.PORT)
+server.set('port', env.PORT);
 
 server.use(bodyParser.json());
 server.use(express.json());
@@ -32,8 +31,6 @@ server.use((req: Request, res: Response, next: NextFunction) => {
 	res.setHeader('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
 	next();
 });
-
-
 
 import router from '@routes/index.routes';
 const allRoutes: express.Router = router;

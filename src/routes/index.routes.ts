@@ -32,7 +32,7 @@ router.post(
 //~~~~~~~~~
 
 // Profile routes
-router.use('/profile' /* middlewares.verifyAuthToken */);
+/* router.use('/profile' middlewares.verifyAuthToken); */
 
 router.get('/profile' /* controller.profile */);
 router.get('/profile/myGames');
@@ -46,7 +46,9 @@ router.get('/allGames');
 //~~~~~~~~~
 
 // Admin routes
-router.use('/admin', /* middlewares.verifyAuthToken, */ /* middlewares.verifyIsAdmin */);
+/* router.use(
+	'/admin' middlewares.verifyAuthToken, middlewares.verifyIsAdmin,
+); */
 
 router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);

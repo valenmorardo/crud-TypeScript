@@ -7,7 +7,6 @@ export function validateRegisterFields(
 	res: Response,
 	next: NextFunction,
 ): Response | void {
-	
 	const { name, email, password } = req.body;
 
 	const patron: RegExp = /^[A-Za-z]+(\s[A-Za-z]+)*$/;

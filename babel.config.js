@@ -20,7 +20,7 @@ module.exports = {
 					'@routes': './src/routes',
 					'@models': './src/models/',
 					'@libs': './src/libs/',
-					'@middlewares': './src/middlewares'
+					'@middlewares': './src/middlewares',
 				},
 			},
 		],

@@ -1,4 +1,3 @@
-import env from '@config/var-environments';
 import server from '@config/server.cfg';
 
 const startServer = () => {

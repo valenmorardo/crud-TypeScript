@@ -17,19 +17,21 @@ export const validateLoginData = async (
 
 	const user: IUserAttributes | null = await User_Model.findOne({
 		where: { email: email_body },
-	}).then((user) => {
-		if (!user) {
-			return null;
-		} else {
-			return user.dataValues;
-		}
-	}).catch((err) => {
-		console.log(err);
-		res.status(500).send({
-			code:500,
-			msg: httpStatusCodes[500]
-		})
 	})
+		.then((user) => {
+			if (!user) {
+				return null;
+			} else {
+				return user.dataValues;
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).send({
+				code: 500,
+				msg: httpStatusCodes[500],
+			});
+		});
 
 	// check if that email is already exists in database
 	if (!user) {
@@ -59,7 +61,7 @@ export const validateLoginData = async (
 		});
 	}
 
-	req.userId= user.id
+	req.userId = user.id;
 
 	return next();
 };

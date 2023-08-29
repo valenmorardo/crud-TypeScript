@@ -21,7 +21,7 @@ const runApp = async (): Promise<boolean> => {
 		if (typeof err === 'string') {
 			throw new Error(err);
 		} else {
-			console.log(err)
+			console.log(err);
 			throw new Error('An unknown error occurred');
 		}
 	}

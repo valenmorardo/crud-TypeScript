@@ -1,3 +1,3 @@
-import { encryptPassword } from "./encrypt-Password";
+import { encryptPassword } from './encrypt-Password';
 
-export { encryptPassword }
+export { encryptPassword };
