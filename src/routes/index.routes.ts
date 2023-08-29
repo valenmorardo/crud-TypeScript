@@ -32,9 +32,9 @@ router.post(
 //~~~~~~~~~
 
 // Profile routes
-/* router.use('/profile' middlewares.verifyAuthToken); */
+router.use('/profile', middlewares.verifyAuthToken);
 
-router.get('/profile' /* controller.profile */);
+router.get('/profile'/* controller.profile */);
 router.get('/profile/myGames');
 router.delete('/profile/myGames/deleteAGame/:id' /* controller.deleteAGame */);
 router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
