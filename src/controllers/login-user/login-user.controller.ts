@@ -8,7 +8,7 @@ export async function loginUser(req: Request, res: Response): Promise<void> {
 		const auth_token: string = jwt.sign(
 			{ id: req.userId },
 			env.JWT_SECRET || 'JWT_SECRET',
-			{ expiresIn: env.JWT_EXPIRES_IN || '24h' },
+			{ expiresIn: env.JWT_EXPIRES_IN || '10m' },
 		);
 		res
 			.status(200)
