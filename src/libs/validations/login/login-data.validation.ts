@@ -15,7 +15,7 @@ export const validateLoginData = async (
 	const email_body: string = email;
 	const password_body: string = password;
 
-	const userFounded: IUserAttributes | null = await User_Model.findOne({
+	const user: IUserAttributes | null = await User_Model.findOne({
 		where: { email: email_body },
 	}).then((user) => {
 		if (!user) {
@@ -23,10 +23,16 @@ export const validateLoginData = async (
 		} else {
 			return user.dataValues;
 		}
-	});
+	}).catch((err) => {
+		console.log(err);
+		res.status(500).send({
+			code:500,
+			msg: httpStatusCodes[500]
+		})
+	})
 
 	// check if that email is already exists in database
-	if (!userFounded) {
+	if (!user) {
 		return res.status(400).send({
 			error_message:
 				'Couldn’t find an account associated with this email. Try again or create an account',
@@ -40,7 +46,7 @@ export const validateLoginData = async (
 	//compare passwords
 	const passwordCheck: boolean = await bcrypt.compare(
 		password_body,
-		userFounded.password,
+		user.password,
 	);
 
 	if (!passwordCheck) {
@@ -52,6 +58,8 @@ export const validateLoginData = async (
 			},
 		});
 	}
+
+	req.userId= user.id
 
 	return next();
 };
