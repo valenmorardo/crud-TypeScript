@@ -16,7 +16,6 @@ const Videogame_Model = Database.define<Model, IVideogameAttributes>(
 
 		name: {
 			type: DataTypes.STRING,
-			unique: true,
 			allowNull: false,
 		},
 
