@@ -2,6 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import Database from '@config/database';
 
 import { IUserAttributes } from '@libs/Types_&_Interfaces/user-attributes';
+import Videogame_Model from './Videogames';
 
 const User_Model = Database.define<Model, IUserAttributes>(
 	'user',
@@ -35,5 +36,9 @@ const User_Model = Database.define<Model, IUserAttributes>(
 		timestamps: false,
 	},
 );
+
+User_Model.hasMany(Videogame_Model, {
+	foreignKey: 'OwnerUser_ID',
+})
 
 export default User_Model;
