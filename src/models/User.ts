@@ -38,7 +38,7 @@ const User_Model = Database.define<Model, IUserAttributes>(
 );
 
 User_Model.hasMany(Videogame_Model, {
-	foreignKey: 'OwnerUser_ID',
+	foreignKey: 'ownerUserId',
 })
 
 export default User_Model;
