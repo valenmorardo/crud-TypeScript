@@ -14,7 +14,7 @@ export const verifyAuthToken = (
 
 	if (!auth_token) {
 		return res.status(401).send({
-			message: 'Access denied.',
+			message: 'Access denied. You must be log in!',
 			status: {
 				code: 401,
 				msg: httpStatusCodes[401],
