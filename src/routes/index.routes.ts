@@ -35,15 +35,15 @@ router.post(
 router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
 
 router.get('/profile', controllers.profileUser);
-router.post('/profile/postNewGame', validations.validateNewGameFields, /* controller.postNewGame */);
+router.post('/profile/postNewGame', validations.validateNewGameFields, controllers.createNewGame);
 router.get('/profile/myGames');
 router.delete('/profile/myGames/deleteAGame/:id' /* controller.deleteAGame */);
 router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
 //~~~~~~~~~
 
 // home // all games
-router.use('/allGames', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify)
-router.get('/allGames');
+/* router.use('/allGames', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify)
+router.get('/allGames'); */
 //~~~~~~~~~
 
 // Admin routes
