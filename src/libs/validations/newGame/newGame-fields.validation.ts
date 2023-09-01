@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import validator from 'validator';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 
-export const validateNewGameData = (
+export const validateNewGameFields = (
 	req: Request,
 	res: Response,
 	next: NextFunction,

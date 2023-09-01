@@ -7,12 +7,12 @@ import { validateLoginFields } from './login/login-fields.validation';
 import { validateLoginData } from './login/login-data.validation';
 
 //post new gane - stage
-import { validateNewGameData } from './newGame/newGame-fields.validation';
+import { validateNewGameFields } from './newGame/newGame-fields.validation';
 
 export {
 	validateRegisterFields,
 	validateLoginFields,
 	validateLoginData,
 	userAlreadyRegistered,
-	validateNewGameData
+	validateNewGameFields
 };
