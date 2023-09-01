@@ -14,5 +14,5 @@ export {
 	validateLoginFields,
 	validateLoginData,
 	userAlreadyRegistered,
-	validateNewGameFields
+	validateNewGameFields,
 };

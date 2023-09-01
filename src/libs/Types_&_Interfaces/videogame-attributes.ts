@@ -1,4 +1,5 @@
-enum genres_videogames {
+
+export enum genres_videogames {
 	Accion = 'Accion',
 	Aventura = 'Aventura',
 	RPG = 'RPG',
@@ -17,3 +18,4 @@ export interface IVideogameAttributes {
 	price: number;
 	genres: Array<genres_videogames>;
 }
+
