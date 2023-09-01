@@ -7,7 +7,7 @@ export const getMyGames = async (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Promise<Response>=> {
 	const id = req.userId;
 
 	const games = await Videogame_Model.findAll({
