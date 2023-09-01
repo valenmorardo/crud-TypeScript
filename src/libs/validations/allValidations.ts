@@ -9,10 +9,14 @@ import { validateLoginData } from './login/login-data.validation';
 //post new gane - stage
 import { validateNewGameFields } from './newGame/newGame.validation';
 
+//Delete a game - stage
+import { validateParamsId } from './deleteAGame/validateParams-id.validations';
+
 export {
 	validateRegisterFields,
 	validateLoginFields,
 	validateLoginData,
 	userAlreadyRegistered,
 	validateNewGameFields,
+	validateParamsId,
 };

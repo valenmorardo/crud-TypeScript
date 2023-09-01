@@ -37,7 +37,7 @@ router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthToken
 router.get('/profile', controllers.profileUser);
 router.post('/profile/postNewGame', validations.validateNewGameFields, controllers.createNewGame);
 router.get('/profile/myGames', controllers.getMyGames);
-router.delete('/profile/myGames/deleteAGame/:id' /* controller.deleteAGame */);
+router.delete('/profile/myGames/deleteAGame/:id', validations.validateParamsId, controllers.deleteAGame);
 router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
 //~~~~~~~~~
 
