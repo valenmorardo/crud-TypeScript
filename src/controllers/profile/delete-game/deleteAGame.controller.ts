@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpStatusCode } from 'axios';
-
-import validator from 'validator';
 
 import Videogame_Model from '@models/Videogames';
+import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 export const deleteAGame = async (
 	req: Request,
@@ -21,9 +19,21 @@ export const deleteAGame = async (
 	});
 
 	if (!gameToDelete) {
-		return res.send('No posee ningun juego con esa ID.');
+		return res.status(404).send({
+			message: 'No posee un juego con ese ID.',
+			status: {
+				code: 404,
+				msg: httpStatusCodes[400],
+			},
+		});
 	} else {
 		gameToDelete.destroy();
-		return res.send('Juego eliminado');
+		return res.status(200).send({
+			message: 'videojuego eliminado!',
+			status: {
+				code: 200,
+				msg: httpStatusCodes[200],
+			},
+		});
 	}
 };
