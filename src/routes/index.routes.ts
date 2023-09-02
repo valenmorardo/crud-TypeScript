@@ -6,9 +6,7 @@ import { Router } from 'express';
 const router: Router = Router();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
 //main route ---> /api
-//
 //~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 router.get('/', (_req, res) => {
@@ -35,10 +33,9 @@ router.post(
 router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
 
 router.get('/profile', controllers.profileUser);
-router.post('/profile/postNewGame', validations.validateNewGameFields, controllers.createNewGame);
+router.post('/profile/postNewGame', validations.validateGameFields, controllers.createNewGame);
 router.get('/profile/myGames', controllers.getMyGames);
 router.delete('/profile/myGames/deleteAGame/:id', validations.validateParamsId, controllers.deleteAGame);
-router.patch('/profile/myGames/patchAGame/:id' /* controller.patchAGame */);
 //~~~~~~~~~
 
 // home // all games

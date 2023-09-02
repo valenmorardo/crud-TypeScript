@@ -7,7 +7,7 @@ import { validateLoginFields } from './login/login-fields.validation';
 import { validateLoginData } from './login/login-data.validation';
 
 //post new gane - stage
-import { validateNewGameFields } from './newGame/newGame.validation';
+import { validateGameFields } from './newGame/Game.validation';
 
 //Delete a game - stage
 import { validateParamsId } from './deleteAGame/validateParams-id.validations';
@@ -17,6 +17,6 @@ export {
 	validateLoginFields,
 	validateLoginData,
 	userAlreadyRegistered,
-	validateNewGameFields,
+	validateGameFields,
 	validateParamsId,
 };

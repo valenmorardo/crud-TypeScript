@@ -4,7 +4,7 @@ import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 import { IVideogameAttributes, genres_videogames } from '../../Types_&_Interfaces/videogame-attributes';
 
-export const validateNewGameFields = (
+export const validateGameFields = (
 	req: Request,
 	res: Response,
 	next: NextFunction,

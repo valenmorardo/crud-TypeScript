@@ -7,6 +7,7 @@ import { getMyGames } from './profile/view-games/myGames.controller';
 
 import { deleteAGame } from './profile/delete-game/deleteAGame.controller';
 
+
 export {
 	registerNewUser,
 	loginUser,
