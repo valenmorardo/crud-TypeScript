@@ -44,9 +44,9 @@ router.get('/allGames'); */
 //~~~~~~~~~
 
 // Admin routes
-/* router.use(
-	'/admin' middlewares.verifyAuthToken, middlewares.verifyIsAdmin,
-); */
+router.use(
+	'/admin', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify, middlewares.verifyIsAdmin,
+);
 
 router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
