@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
-import { IVideogameAttributes } from '@libs/typings/videogame-attributes';
+import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 import Videogame_Model from '@models/Videogames';
-import { CustomError } from 'src/utils/custom-error';
+import { CustomError } from 'src/utils/customError';
 
 export const createNewGame = async (
 	req: Request,

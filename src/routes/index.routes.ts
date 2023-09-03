@@ -1,8 +1,8 @@
 import * as controllers from '@controllers/allControllers';
-import * as validations from '@libs/validations/allValidations';
+/* import * as validations from '@libs/validations/allValidations'; */
 import * as middlewares from '@middlewares/allMiddlewares.routes';
 
-import { errorHandler } from '@controllers/error-handler';
+import { errorHandler } from '@controllers/errorHandler';
 
 import { Router } from 'express';
 const router: Router = Router();
@@ -20,15 +20,15 @@ router.use(errorHandler)
 // login & register
 router.post(
 	'/register',
-	validations.validateRegisterFields,
-	validations.userAlreadyRegistered,
+	/* validations.validateRegisterFields, */
+	/* validations.userAlreadyRegistered, */
 	middlewares.encryptPassword,
 	controllers.registerNewUser,
 );
 router.post(
 	'/login',
-	validations.validateLoginFields,
-	validations.validateLoginData,
+	/* validations.validateLoginFields, */
+	/* validations.validateLoginData, */
 	controllers.loginUser,
 );
 //~~~~~~~~~
@@ -37,9 +37,9 @@ router.post(
 router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
 
 router.get('/profile', controllers.profileUser);
-router.post('/profile/postNewGame', validations.validateGameFields, controllers.createNewGame);
+router.post('/profile/postNewGame', /* validations.validateGameFields, */ controllers.createNewGame);
 router.get('/profile/myGames', controllers.getMyGames);
-router.delete('/profile/myGames/deleteAGame/:id', validations.validateParamsId, controllers.deleteAGame);
+router.delete('/profile/myGames/deleteAGame/:id', /* validations.validateParamsId, */ controllers.deleteAGame);
 //~~~~~~~~~
 
 // home // all games

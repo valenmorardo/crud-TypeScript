@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import Database from '@config/database';
 
-import { IUserAttributes } from '@libs/typings/user-attributes';
+import { IUserAttributes } from '@libs/typings/userAttributes';
 import Videogame_Model from './Videogames';
 
 const User_Model = Database.define<Model, IUserAttributes>(

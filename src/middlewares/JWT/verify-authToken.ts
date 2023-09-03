@@ -3,7 +3,7 @@ import env from '@config/var-environments';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { IPayloadAuthToken } from '@libs/typings/payload-auth-token';
+import { IPayloadAuthToken } from '@libs/typings/payloadAuthToken';
 
 export const verifyAuthToken = (
 	req: Request,

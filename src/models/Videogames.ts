@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import Database from '@config/database';
 
-import { IVideogameAttributes } from '@libs/typings/videogame-attributes';
+import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 
 const Videogame_Model = Database.define<Model, IVideogameAttributes>(
 	'videogame',
