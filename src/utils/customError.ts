@@ -4,9 +4,9 @@ export class CustomError {
     data?: Object;
    
 
-    constructor(message: string,  status: number = 500, data?: Object, ) {
+    constructor(message: string,  status: number, data?: Object, ) {
       this.message = message;
       this.data = data
-      this.status = status;
+      this.status = status? status : 500;
     }
   }
