@@ -2,12 +2,14 @@ import validator from 'validator';
 import { CustomError } from '../customError';
 
 export const validatePassword = (password: string): boolean => {
-	if (!validator.isAscii(password)) {
+	if (validator.isEmpty(password))
+		throw new CustomError('La contrseña no puede estar vacio.', 400);
+
+	if (!validator.isAscii(password))
 		throw new CustomError(
 			'The password isnt valid. Must contain ascii characters only.',
 			400,
 		);
-	}
 
 	if (
 		!validator.isStrongPassword(password, {
