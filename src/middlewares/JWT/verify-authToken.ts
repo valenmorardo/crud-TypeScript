@@ -3,7 +3,7 @@ import env from '@config/var-environments';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { IPayloadAuthToken } from '@libs/Types_&_Interfaces/payload-auth-token';
+import { IPayloadAuthToken } from '@libs/typings/payload-auth-token';
 
 export const verifyAuthToken = (
 	req: Request,
@@ -30,7 +30,7 @@ export const verifyAuthToken = (
 
 		req.userId = payload.id;
 
-		console.log("token autorizado")
+		console.log('token autorizado');
 	} catch (error) {
 		console.log(error);
 		return res.status(401).send({

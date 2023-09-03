@@ -1,4 +1,4 @@
-import { IHttpStatusCodes } from './Types_&_Interfaces/httpStatusCodes';
+import { IHttpStatusCodes } from './typings/httpStatusCodes';
 
 export const httpStatusCodes: IHttpStatusCodes = {
 	200: 'OK',

@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 
 import User_Model from '@models/User';
 
-import { IUserAttributes } from '@libs/Types_&_Interfaces/user-attributes';
+import { IUserAttributes } from '@libs/typings/user-attributes';
 
 export const validateLoginData = async (
 	req: Request,
