@@ -20,6 +20,7 @@ export const validatePassword = (password: string): boolean => {
 	) {
 		throw new CustomError(
 			'La contraseña no es fuerte. Debe cumplir las siguientes condiciones.',
+			400,
 			{
 				caracteres_min: 8,
 				minisculas_min: 1,
@@ -27,7 +28,6 @@ export const validatePassword = (password: string): boolean => {
 				numeros_min: 1,
 				simbolos_min: 1,
 			},
-			400,
 		);
 	}
 
