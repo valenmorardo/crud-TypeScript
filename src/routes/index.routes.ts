@@ -2,6 +2,8 @@ import * as controllers from '@controllers/allControllers';
 import * as validations from '@libs/validations/allValidations';
 import * as middlewares from '@middlewares/allMiddlewares.routes';
 
+import { errorHandler } from '@controllers/error-handler';
+
 import { Router } from 'express';
 const router: Router = Router();
 
@@ -12,6 +14,8 @@ const router: Router = Router();
 router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
+
+router.use(errorHandler)
 
 // login & register
 router.post(
@@ -50,7 +54,7 @@ router.use(
 
 router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
-router.post('/admin/newAdmin' /* controller.newAdmin */);
+router.put('/admin/newAdmin' /* controller.newAdmin */);
 //~~~~~~~~~
 
 export default router;
