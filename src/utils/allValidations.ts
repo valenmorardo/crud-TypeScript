@@ -5,6 +5,7 @@ import { validateIsUUID } from "./functionsValidations/validateIsUUID";
 import { validateName } from "./functionsValidations/validateName";
 import { validatePassword } from './functionsValidations/validatePassword';
 import { validatePrice } from './functionsValidations/validatePrice';
+import { validateIsJWT } from "./functionsValidations/validateJWT";
 
 export const validations = {
     validateDescription,
@@ -14,4 +15,5 @@ export const validations = {
     validateName,
     validatePassword,
     validatePrice,
+    validateIsJWT
 }

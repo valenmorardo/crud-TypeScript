@@ -1,6 +1,6 @@
-import { encryptPassword } from './validations/register/encryptPassword';
-import { verifyAuthToken } from './JWT/verify-authToken';
-import { payloadAuthTokenVerify } from './JWT/verify-payload-authToken';
+import { encryptPassword } from './encryptPassword';
+import { verifyAuthToken } from './validations/JWT/authTokenValidator';
+import { payloadAuthTokenVerify } from './validations/JWT/verify-payload-authToken';
 import { verifyIsAdmin } from './validations/admin/verifyIsAdmin';
 
 import { registerFieldsValidator } from './validations/register/registerFieldsValidator';
