@@ -1,5 +1,5 @@
 import { encryptPassword } from './encryptPassword';
-import { verifyAuthToken } from './validations/JWT/authTokenValidator';
+import { authTokenValidator } from './validations/JWT/authTokenValidator';
 import { payloadAuthTokenVerify } from './validations/JWT/verify-payload-authToken';
 import { verifyIsAdmin } from './validations/admin/verifyIsAdmin';
 
@@ -10,7 +10,7 @@ import { loginDataValidator } from './validations/login/loginDataValidator';
 
 export {
 	encryptPassword,
-	verifyAuthToken,
+	authTokenValidator,
 	payloadAuthTokenVerify,
 	verifyIsAdmin,
 	registerFieldsValidator,

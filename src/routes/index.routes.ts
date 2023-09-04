@@ -33,7 +33,7 @@ router.post(
 // Profile routes
 router.use(
 	'/profile',
-	middlewares.verifyAuthToken,
+	middlewares.authTokenValidator,
 	middlewares.payloadAuthTokenVerify,
 );
 
@@ -57,7 +57,7 @@ router.get('/allGames'); */
 // Admin routes
 router.use(
 	'/admin',
-	middlewares.verifyAuthToken,
+	middlewares.authTokenValidator,
 	middlewares.payloadAuthTokenVerify,
 	middlewares.verifyIsAdmin,
 );
