@@ -13,12 +13,12 @@ export const payloadIDExcistenseValidator = async (
 
 	User_Model.findByPk(userId).then((user) => {
 
-        if(!user) throw new CustomError('Access denied.', 400)
+        if(!user) throw new CustomError('Fallo en la autenticacion.', 400)
     
         return next()
     }).catch((error) => {
-        error.message_error = error.message;
-        error.message = "Fallo a la hora de logear."
+        error.error_message = error.message;
+        error.message = "Access denied. Try to log in again."
         return next(error)
     });
 };

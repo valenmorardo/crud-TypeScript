@@ -15,7 +15,7 @@ export const authTokenValidator = (
 	const auth_token = req.header('auth-token');
 
 	try {
-		if (!auth_token) throw new CustomError('Access denied.', 400);
+		if (!auth_token) throw new CustomError('Fallo en la autenticacion', 400);
 		validations.validateIsJWT(auth_token);
 
 		const payload = jwt.verify(
@@ -23,14 +23,14 @@ export const authTokenValidator = (
 			env.JWT_SECRET || 'JWT_SECRET',
 		) as IPayloadAuthToken;
 
-		if (!payload.id) throw new CustomError('Access denied.', 400);
-		validations.validateIsUUID(payload.id, 'Access denied');
+		if (!payload.id) throw new CustomError('Fallo en la autenticacion', 400);
+		validations.validateIsUUID(payload.id, 'Fallo en la autenticacion');
 
 		req.userId = payload.id;
 		return next();
 	} catch (error: any) {
-		error.message_error = error.message;
-		error.message = 'Fallo a la hora de logear.';
+		error.error_message = error.message;
+		error.message = 'Access denied. Try to log in again';
 		return next(error);
 	}
 };
