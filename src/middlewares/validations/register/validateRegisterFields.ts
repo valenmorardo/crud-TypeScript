@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { IUserAttributes } from '@libs/typings/userAttributes';
 
-import { validations } from '../../utils/allValidations';
+import { validations } from '../../../utils/allValidations';
 
 export const validateRegisterFields = (
 	req: Request,

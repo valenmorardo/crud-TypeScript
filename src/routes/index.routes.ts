@@ -1,5 +1,4 @@
 import * as controllers from '@controllers/allControllers';
-/* import * as validations from '@libs/validations/allValidations'; */
 import * as middlewares from '@middlewares/allMiddlewares.routes';
 
 import { errorHandler } from '@controllers/errorHandler';
