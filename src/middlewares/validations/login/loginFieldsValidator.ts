@@ -10,12 +10,9 @@ export const loginFieldsValidator = (
 ): void => {
 	const { email }: IUserAttributes = req.body;
 	try {
-		
 		validations.validateEmail(email);
-        console.log('Las validaciones salieron bien!')
-		/* return next(); */
+		return next();
 	} catch (error: any) {
-        console.log(error)
 		error.error_message = error.message;
 		error.message = 'Fallo al logear.';
 		return next(error);

@@ -25,7 +25,7 @@ router.post(
 router.post(
 	'/login',
 	middlewares.loginFieldsValidator,
-	/* validations.validateLoginData, */
+	middlewares.loginDataValidator,
 	controllers.loginUser,
 );
 //~~~~~~~~~
