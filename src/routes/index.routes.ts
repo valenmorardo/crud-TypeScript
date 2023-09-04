@@ -40,7 +40,7 @@ router.use(
 router.get('/profile', controllers.profileUser);
 router.post(
 	'/profile/postNewGame',
-	/* validations.validateGameFields, */ controllers.createNewGame,
+	middlewares.createGameFieldsValidator, controllers.createNewGame,
 );
 router.get('/profile/myGames', controllers.getMyGames);
 router.delete(

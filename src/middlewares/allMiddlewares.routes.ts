@@ -8,6 +8,8 @@ import { emailExistenceValidator } from './validations/register/emailExistenceVa
 import { loginFieldsValidator } from './validations/login/loginFieldsValidator';
 import { loginDataValidator } from './validations/login/loginDataValidator';
 
+import { createGameFieldsValidator } from './validations/profile/createGameFieldsValidator';
+
 export {
 	encryptPassword,
 	authTokenValidator,
@@ -17,4 +19,5 @@ export {
 	emailExistenceValidator,
 	loginFieldsValidator,
 	loginDataValidator,
+	createGameFieldsValidator
 };

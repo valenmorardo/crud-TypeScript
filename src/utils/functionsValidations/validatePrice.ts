@@ -2,7 +2,7 @@ import validator from 'validator';
 import { CustomError } from '../customError';
 
 export const validatePrice = (price: number): boolean => {
-	if (!validator.isEmpty(price.toString()))
+	if (validator.isEmpty(price.toString()))
 		throw new CustomError('El precio es obligatorio.', 400);
 
 	if (
