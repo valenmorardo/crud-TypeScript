@@ -1,9 +1,9 @@
 import validator from 'validator';
 import { CustomError } from '../customError';
 
-export const validateIsUUID = (id: string): boolean => {
-	if(validator.isEmpty(id)) throw new CustomError('La ID no puede ser vacio.', 400)
-	if (!validator.isUUID(id)) throw new CustomError('No existe ese ID', 400);
+export const validateIsUUID = (id: string, errormsg?: string): boolean => {
+	
+	if (!validator.isUUID(id)) throw new CustomError(errormsg? errormsg : 'No existe esa ID', 400);
 
 	return true;
 };
