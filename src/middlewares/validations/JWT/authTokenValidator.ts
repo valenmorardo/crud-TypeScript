@@ -25,11 +25,10 @@ export const authTokenValidator = (
 		if (!payload.id) throw new CustomError('Access denied.', 400);
 
 		req.userId = payload.id;
+		return next();
 	} catch (error: any) {
 		error.message_error = error.message;
 		error.message = 'Access denied.';
 		return next(error);
 	}
-
-	return next();
 };
