@@ -12,7 +12,7 @@ export const registerFieldsValidator = (
 	const { name, email, password }: IUserAttributes = req.body;
 	try {
 		validations.validateEmail(email);
-		validations.validateName(name);
+		validations.validateUserName(name);
 		validations.validatePassword(password);
 		return next();
 	} catch (error: any) {
