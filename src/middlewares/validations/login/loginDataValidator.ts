@@ -34,7 +34,7 @@ export const loginDataValidator = (
 			if (!passwordCheck)
 				throw new CustomError('Email or password is wronng. Try again', 400);
 			req.userId = user.dataValues.id;
-            console.log('Salio todo bien a la hora de logear!')
+            
 			return next();
 		})
 		.catch((error: any) => {
