@@ -15,12 +15,12 @@ router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
 
-router.use(errorHandler)
+
 
 // login & register
 router.post(
 	'/register',
-	/* validations.validateRegisterFields, */
+	middlewares.validateRegisterFields,
 	/* validations.userAlreadyRegistered, */
 	middlewares.encryptPassword,
 	controllers.registerNewUser,
@@ -56,5 +56,7 @@ router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
 router.put('/admin/newAdmin' /* controller.newAdmin */);
 //~~~~~~~~~
+
+router.use(errorHandler)
 
 export default router;

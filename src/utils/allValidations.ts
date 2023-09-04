@@ -6,7 +6,7 @@ import { validateName } from "./functionsValidations/validateName";
 import { validatePassword } from './functionsValidations/validatePassword';
 import { validatePrice } from './functionsValidations/validatePrice';
 
-export const valida = {
+export const validations = {
     validateDescription,
     validateEmail,
     validateGenres,
