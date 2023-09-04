@@ -1,38 +1,33 @@
 import { Request, Response, NextFunction } from 'express';
-import { httpStatusCodes } from '@libs/httpStatusCodes';
+
 import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 import Videogame_Model from '@models/Videogames';
-import { CustomError } from 'src/utils/customError';
 
-export const createNewGame = async (
+
+export const createNewGame =  (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-): Promise<Response | void> => {
+): Response | void => {
 	const { name, description, price, genres }: IVideogameAttributes = req.body;
 	const userId = req.userId;
 
-	try {
-		const newGame = await Videogame_Model.create({
-			name,
-			description,
-			price,
-			genres,
-			ownerUserId: userId,
+	Videogame_Model.create({
+		name: name.trim(),
+		description: description.trim(),
+		price,
+		genres,
+		ownerUserId: userId,
+	})
+		.then((newGame) => {
+			return res.status(201).send({
+				message: 'Juego creado',
+				newGame,
+			});
+		})
+		.catch((error) => {
+			error.error_message = error.message;
+			error.message = 'Fallo a la hora de crear videojuego.';
+			return next(error)
 		});
-
-		return res.status(201).send({
-			message: 'Juego creado',
-			newGame,
-			status: {
-				code: 201,
-				msg: httpStatusCodes[201],
-			},
-		});
-	} catch (error: any) {
-		error.error_message = error.message;
-		error.message = 'Fallo al crearse el juego';
-
-		return next(error);
-	}
 };
