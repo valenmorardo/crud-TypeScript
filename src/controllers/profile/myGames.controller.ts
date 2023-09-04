@@ -4,11 +4,11 @@ import { httpStatusCodes } from '@libs/httpStatusCodes';
 import Videogame_Model from '@models/Videogames';
 import { CustomError } from '@utils/customError';
 
-export const getMyGames = async (
+export const getMyGames =  (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Response | void => {
 	const id = req.userId;
 
 	Videogame_Model.findAll({

@@ -9,6 +9,7 @@ import { loginFieldsValidator } from './validations/login/loginFieldsValidator';
 import { loginDataValidator } from './validations/login/loginDataValidator';
 
 import { createGameFieldsValidator } from './validations/profile/createGameFieldsValidator';
+import { paramsGameIDValidator } from './validations/profile/paramsGameIDValidator';
 
 export {
 	encryptPassword,
@@ -19,5 +20,6 @@ export {
 	emailExistenceValidator,
 	loginFieldsValidator,
 	loginDataValidator,
-	createGameFieldsValidator
+	createGameFieldsValidator,
+	paramsGameIDValidator
 };

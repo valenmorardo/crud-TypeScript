@@ -45,7 +45,7 @@ router.post(
 router.get('/profile/myGames', controllers.getMyGames);
 router.delete(
 	'/profile/myGames/deleteAGame/:id',
-	/* validations.validateParamsId, */ controllers.deleteAGame,
+	middlewares.paramsGameIDValidator, controllers.deleteAGame,
 );
 //~~~~~~~~~
 
