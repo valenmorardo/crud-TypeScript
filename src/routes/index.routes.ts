@@ -34,7 +34,7 @@ router.post(
 router.use(
 	'/profile',
 	middlewares.authTokenValidator,
-	middlewares.payloadAuthTokenVerify,
+	middlewares.payloadIDExcistenseValidator,
 );
 
 router.get('/profile', controllers.profileUser);
@@ -58,7 +58,7 @@ router.get('/allGames'); */
 router.use(
 	'/admin',
 	middlewares.authTokenValidator,
-	middlewares.payloadAuthTokenVerify,
+	middlewares.payloadIDExcistenseValidator,
 	middlewares.verifyIsAdmin,
 );
 

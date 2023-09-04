@@ -1,6 +1,6 @@
 import { encryptPassword } from './encryptPassword';
 import { authTokenValidator } from './validations/JWT/authTokenValidator';
-import { payloadAuthTokenVerify } from './validations/JWT/verify-payload-authToken';
+import { payloadIDExcistenseValidator } from './validations/JWT/payloadIDExcistenseValidator';
 import { verifyIsAdmin } from './validations/admin/verifyIsAdmin';
 
 import { registerFieldsValidator } from './validations/register/registerFieldsValidator';
@@ -11,7 +11,7 @@ import { loginDataValidator } from './validations/login/loginDataValidator';
 export {
 	encryptPassword,
 	authTokenValidator,
-	payloadAuthTokenVerify,
+	payloadIDExcistenseValidator,
 	verifyIsAdmin,
 	registerFieldsValidator,
 	emailExistenceValidator,
