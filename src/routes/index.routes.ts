@@ -20,7 +20,7 @@ router.post(
 	middlewares.registerFieldsValidator,
 	middlewares.emailExistenceValidator,
 	middlewares.encryptPassword,
-	controllers.registerNewUser,
+	controllers.registerUser,
 );
 router.post(
 	'/login',

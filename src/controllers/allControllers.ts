@@ -1,4 +1,4 @@
-import { registerNewUser } from './register-NewUser/register-NewUser.controller';
+import { registerUser } from './register-NewUser/registerUser';
 import { loginUser } from './login-user/loginUser.controller';
 import { profileUser } from './profile/profile.controller';
 
@@ -9,7 +9,7 @@ import { deleteAGame } from './profile/deleteAGame.controller';
 
 
 export {
-	registerNewUser,
+	registerUser,
 	loginUser,
 	profileUser,
 	createNewGame,
