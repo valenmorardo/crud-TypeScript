@@ -14,13 +14,11 @@ router.get('/', (_req, res) => {
 	res.json({ message: 'Welcome to my videogames CRUD API' });
 });
 
-
-
 // login & register
 router.post(
 	'/register',
-	middlewares.validateRegisterFields,
-	/* validations.userAlreadyRegistered, */
+	middlewares.registerFieldsValidator,
+	middlewares.emailExistenceValidator,
 	middlewares.encryptPassword,
 	controllers.registerNewUser,
 );
@@ -33,12 +31,22 @@ router.post(
 //~~~~~~~~~
 
 // Profile routes
-router.use('/profile', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify);
+router.use(
+	'/profile',
+	middlewares.verifyAuthToken,
+	middlewares.payloadAuthTokenVerify,
+);
 
 router.get('/profile', controllers.profileUser);
-router.post('/profile/postNewGame', /* validations.validateGameFields, */ controllers.createNewGame);
+router.post(
+	'/profile/postNewGame',
+	/* validations.validateGameFields, */ controllers.createNewGame,
+);
 router.get('/profile/myGames', controllers.getMyGames);
-router.delete('/profile/myGames/deleteAGame/:id', /* validations.validateParamsId, */ controllers.deleteAGame);
+router.delete(
+	'/profile/myGames/deleteAGame/:id',
+	/* validations.validateParamsId, */ controllers.deleteAGame,
+);
 //~~~~~~~~~
 
 // home // all games
@@ -48,7 +56,10 @@ router.get('/allGames'); */
 
 // Admin routes
 router.use(
-	'/admin', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify, middlewares.verifyIsAdmin,
+	'/admin',
+	middlewares.verifyAuthToken,
+	middlewares.payloadAuthTokenVerify,
+	middlewares.verifyIsAdmin,
 );
 
 router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
@@ -56,6 +67,6 @@ router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
 router.put('/admin/newAdmin' /* controller.newAdmin */);
 //~~~~~~~~~
 
-router.use(errorHandler)
+router.use(errorHandler);
 
 export default router;

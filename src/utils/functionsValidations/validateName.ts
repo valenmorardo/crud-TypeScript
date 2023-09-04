@@ -2,13 +2,20 @@ import { CustomError } from 'src/utils/customError';
 import validator from 'validator';
 
 export const validateName = (name: string): boolean => {
-	const patron: RegExp = /^[A-Za-z]+(\s[A-Za-z]+)*$/;
+	const patronMayusMin: RegExp = /^[A-Za-z\s]+$/; 
+	const patronEspBlanc: RegExp = /(\s{2,})/g;
 
 	if (validator.isEmpty(name))
 		throw new CustomError('El nombre no puede ser vacio', 400);
 
-	if (!patron.test(name.trim()))
-		throw new CustomError('El nombre debe estar en formato texto', 400);
+	if (!patronMayusMin.test(name))
+		throw new CustomError('El nombre debe contener unicamente letras', 400);
+
+	if (patronEspBlanc.test(name))
+		throw new CustomError(
+			'No puede haber mas de un espacio en blanco entre palabras.',
+			400,
+		);
 
 	return true;
 };

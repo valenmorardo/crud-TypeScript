@@ -4,9 +4,9 @@ import { IUserAttributes } from '@libs/typings/userAttributes';
 
 import { validations } from '../../../utils/allValidations';
 
-export const validateRegisterFields = (
+export const registerFieldsValidator = (
 	req: Request,
-	res: Response,
+	_res: Response,
 	next: NextFunction,
 ): void => {
 	const { name, email, password }: IUserAttributes = req.body;
@@ -17,6 +17,7 @@ export const validateRegisterFields = (
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
+		error.data = error.data;
 		error.message = 'Fallo al crear el usuario';
 		return next(error);
 	}

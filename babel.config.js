@@ -21,6 +21,7 @@ module.exports = {
 					'@models': './src/models/',
 					'@libs': './src/libs/',
 					'@middlewares': './src/middlewares',
+					"@utils": "./src/utils/*",
 				},
 			},
 		],

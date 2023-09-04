@@ -90,7 +90,8 @@
 			"@config/*": ["./src/config/*"],
 			"@models/*": ["./src/models/*"],
 			"@libs/*": ["./src/libs/*"],
-			"@middlewares/*": ["./src/middlewares/*"]
+			"@middlewares/*": ["./src/middlewares/*"],
+			"@utils/*": ["./src/utils/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./src/@types"],
 
