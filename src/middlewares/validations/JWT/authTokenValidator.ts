@@ -22,6 +22,8 @@ export const authTokenValidator = (
 			env.JWT_SECRET || 'JWT_SECRET',
 		) as IPayloadAuthToken;
 
+		if (!payload.id) throw new CustomError('Access denied.', 400);
+
 		req.userId = payload.id;
 	} catch (error: any) {
 		error.message_error = error.message;
