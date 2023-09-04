@@ -5,6 +5,7 @@ import { verifyIsAdmin } from './validations/admin/verifyIsAdmin';
 
 import { registerFieldsValidator } from './validations/register/registerFieldsValidator';
 import { emailExistenceValidator } from './validations/register/emailExistenceValidator';
+import { loginFieldsValidator } from './validations/login/loginFieldsValidator';
 
 export {
 	encryptPassword,
@@ -13,4 +14,5 @@ export {
 	verifyIsAdmin,
 	registerFieldsValidator,
 	emailExistenceValidator,
+	loginFieldsValidator,
 };
