@@ -6,7 +6,7 @@ export const validateDescription = (description: string): boolean => {
 		throw new CustomError('la descripcion es obligatoria.', 400);
 
 	if (!validator.isAscii(description))
-		throw new CustomError('La descripcion contiene caracteres invalidos.');
+		throw new CustomError('La descripcion contiene caracteres invalidos.', 400);
 
 	return true;
 };
