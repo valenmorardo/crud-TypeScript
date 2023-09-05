@@ -7,7 +7,7 @@ export const validateUserName = (name: string): boolean => {
 	const patronEspBlanc: RegExp = /(\s{2,})/g;
 
 	if (validator.isEmpty((name.trim())))
-		throw new CustomError(responseMsg.error_nameIsntEmpty, 400);
+		throw new CustomError(responseMsg.error_nameIsEmpty, 400);
 
 	if (!patronMayusMin.test(name))
 		throw new CustomError(responseMsg.error_nameOnlyLetters, 400);

@@ -1,7 +1,6 @@
-// validations error messages
-
 import { IAdditionalDataError } from './typings/additionalDataError';
 
+// validations error messages
 // UserName
 const error_nameIsEmpty: string = 'The name is required.';
 const error_nameOnlyLetters: string = 'The name must contain only letters';
@@ -38,7 +37,6 @@ const error_GameDescriptionIsEmpty: string =
 	'The game description is required.';
 const error_gameDescriptionOnlyAscii: string =
 	'The game description is not valid. It must contain only ASCII characters.';
-    
 
 // Price
 const error_gamePriceIsEmpty: string = 'The game price is required.';
@@ -57,8 +55,12 @@ const error_notUUID: string = 'That ID does not exist.';
 // JWT
 const error_notJWT: string = 'Access denied.';
 
+
+
+
+
 export const responseMsg = {
-	error_nameIsntEmpty,
+	error_nameIsEmpty,
 	error_nameOnlyLetters,
 	error_nameNotWhitespaces,
 	error_emailIsEmpty,
