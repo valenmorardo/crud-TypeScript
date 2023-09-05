@@ -8,6 +8,7 @@ import { getMyGames } from './profile/myGames.controller';
 import { deleteAGame } from './profile/deleteAGame.controller';
 
 import { getAllProfiles } from './admin/getAllProfiles.controller';
+import { deleteAUser } from './admin/deleteAUser.controller';
 
 export {
 	registerUser,
@@ -17,4 +18,5 @@ export {
 	getMyGames,
 	deleteAGame,
 	getAllProfiles,
+	deleteAUser
 };

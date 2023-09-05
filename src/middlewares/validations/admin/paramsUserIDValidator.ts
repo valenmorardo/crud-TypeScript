@@ -6,13 +6,14 @@ export const paramsUserIDValidator = (
 	res: Response,
 	next: NextFunction,
 ) => {
-    const userId = req.params.id;
+    const userId: string = req.params.id;
 
     try {
-        validations.validateIsUUID(userId, 'No existe usuario con esa ID');
+        validations.validateIsUUID(userId);
         return next()
     } catch (error: any) {
         error.error_message = error.message;
         error.message = 'Fallo a la hora de eliminar usuario.'
+        return next(error);
     }
 };
