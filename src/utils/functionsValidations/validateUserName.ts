@@ -1,3 +1,4 @@
+import { responseMsg } from '@libs/responseMsg';
 import { CustomError } from 'src/utils/customError';
 import validator from 'validator';
 
@@ -6,14 +7,14 @@ export const validateUserName = (name: string): boolean => {
 	const patronEspBlanc: RegExp = /(\s{2,})/g;
 
 	if (validator.isEmpty((name.trim())))
-		throw new CustomError('El nombre no puede ser vacio', 400);
+		throw new CustomError(responseMsg.error_nameIsntEmpty, 400);
 
 	if (!patronMayusMin.test(name))
-		throw new CustomError('El nombre debe contener unicamente letras', 400);
+		throw new CustomError(responseMsg.error_nameOnlyLetters, 400);
 
 	if (patronEspBlanc.test(name))
 		throw new CustomError(
-			'No puede haber mas de un espacio en blanco entre palabras.',
+			responseMsg.error_nameNotWhitespaces,
 			400,
 		);
 

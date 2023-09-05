@@ -1,15 +1,13 @@
 import validator from 'validator';
 import { CustomError } from '../customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const validatePassword = (password: string): boolean => {
 	if (validator.isEmpty(password))
-		throw new CustomError('La contrseña no puede estar vacio.', 400);
+		throw new CustomError(responseMsg.error_passwordIsntEmpty, 400);
 
 	if (!validator.isAscii(password))
-		throw new CustomError(
-			'The password isnt valid. Must contain ascii characters only.',
-			400,
-		);
+		throw new CustomError(responseMsg.error_passwordOnlyAscii, 400);
 
 	if (
 		!validator.isStrongPassword(password, {
@@ -21,15 +19,9 @@ export const validatePassword = (password: string): boolean => {
 		})
 	) {
 		throw new CustomError(
-			'La contraseña no es fuerte. Debe cumplir las siguientes condiciones.',
+			responseMsg.error_passwordNotStrong,
 			400,
-			{
-				caracteres_min: 8,
-				minisculas_min: 1,
-				mayusculas_min: 1,
-				numeros_min: 1,
-				simbolos_min: 1,
-			},
+			responseMsg.passwordRequirements,
 		);
 	}
 
