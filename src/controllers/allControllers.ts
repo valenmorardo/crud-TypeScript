@@ -1,5 +1,5 @@
-import { registerUser } from './register-NewUser/registerUser';
-import { loginUser } from './login-user/loginUser.controller';
+import { registerUser } from './registerNewUser/registerUser';
+import { loginUser } from './loginUser/loginUser.controller';
 import { profileUser } from './profile/profile.controller';
 
 import { createNewGame } from './profile/createNewGame.controller';
