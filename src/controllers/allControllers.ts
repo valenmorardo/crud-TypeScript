@@ -9,6 +9,7 @@ import { deleteAGame } from './profile/deleteAGame.controller';
 
 import { getAllProfiles } from './admin/getAllProfiles.controller';
 import { deleteAUser } from './admin/deleteAUser.controller';
+import { handlerIsAdmin } from './admin/handlerIsAdmin.controller';
 
 export {
 	registerUser,
@@ -18,5 +19,6 @@ export {
 	getMyGames,
 	deleteAGame,
 	getAllProfiles,
-	deleteAUser
+	deleteAUser,
+	handlerIsAdmin
 };
