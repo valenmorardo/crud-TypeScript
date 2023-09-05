@@ -19,6 +19,7 @@ Utilice sequelize y postgres. Si desea utilizar otra, tendra que realizar los ca
 * *name*
 * *email*
 * *password*
+
 Respetar las lowercase y uppercase cuando sea necesario.
 
 
@@ -26,6 +27,7 @@ Respetar las lowercase y uppercase cuando sea necesario.
 Debe pasarle mediante el body los siguientes datos:
 * *email*
 * *password*
+
 Respetar las lowercase y uppercase cuando sea necesario.
 
 
@@ -39,6 +41,7 @@ Debe pasarle mediante el body los siguientes datos:
 * *description*
 * *price*
 * *genres*
+
 Respetar las lowercase y uppercase cuando sea necesario.
 
 *Metodo GET* ---> **localhost:3001/api/profile/myGames** ---> Ruta donde se accede a todos los videojuegos creados por el usuario.
@@ -63,6 +66,7 @@ Para tener al menos 1 admin tendra q editarlo desde la base de datos para testea
 *Metodo PUT* ---> **localhost:3001/api/admin/handlerIsAdmin/:id** ---> Ruta donde los administradores pueden actualizar si cierto usuario (ID) es admin o no.
 Debe pasarle mediante params los siguientes datos:
 * *id del usuario*
+
 Respetar las lowercase y uppercase cuando sea necesario.
 
 
