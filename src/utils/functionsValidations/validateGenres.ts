@@ -1,5 +1,5 @@
 import validator from 'validator';
-import { CustomError } from '../customError';
+import { CustomError } from '@utils/customError';
 
 import { genres_videogames } from '@libs/typings/videogameAttributes';
 import { responseMsg } from '@libs/responseMsg';

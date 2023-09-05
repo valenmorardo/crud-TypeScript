@@ -1,5 +1,5 @@
 import validator from 'validator';
-import { CustomError } from '../customError';
+import { CustomError } from '@utils/customError';
 import { responseMsg } from '@libs/responseMsg';
 
 export const validateEmail = (email: string): boolean => {

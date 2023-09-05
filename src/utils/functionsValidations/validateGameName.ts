@@ -1,5 +1,5 @@
 import { responseMsg } from '@libs/responseMsg';
-import { CustomError } from 'src/utils/customError';
+import { CustomError } from '@utils/customError';
 import validator from 'validator';
 
 export const validateGameName = (gameName: string): boolean => {
