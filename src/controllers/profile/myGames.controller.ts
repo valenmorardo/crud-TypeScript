@@ -3,6 +3,7 @@ import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 import Videogame_Model from '@models/Videogames';
 import { CustomError } from '@utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const getMyGames =  (
 	req: Request,
@@ -22,7 +23,7 @@ export const getMyGames =  (
 		.then((games) => {
 			console.log(games)
 			if (!games.length)
-				throw new CustomError('No se encontraron juegos de su propiedad.', 400);
+				throw new CustomError(responseMsg.notFoundGamesInProperty, 400);
 
 				const videogames = games.map((game) => {
 					return game.dataValues
@@ -36,7 +37,7 @@ export const getMyGames =  (
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo a la hora de obtener videojuegos'
+			error.message = responseMsg.error_obtainUserGames
 			return next(error)
 		});
 };

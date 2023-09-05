@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import { validations } from '@utils/allValidations';
 import { IUserAttributes } from '@libs/typings/userAttributes';
 import { CustomError } from '@utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const loginFieldsValidator = (
 	req: Request,
@@ -13,16 +14,16 @@ export const loginFieldsValidator = (
 	try {
 		if (!email || !password)
 			throw new CustomError(
-				'Faltan campos de datos. Los siguientes campos son requeridos:',
+				responseMsg.error_MissingData,
 				400,
-				{ email: 'your email', password: 'your password' },
+				responseMsg.loginDataRequired,
 			);
 		validations.validateEmail(email);
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
 		error.additionalData = error.data;
-		error.message = 'Fallo al logear.';
+		error.message = responseMsg.error_defaultMSGLogin;
 		return next(error);
 	}
 };

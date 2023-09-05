@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import User_Model from '@models/User';
 import { CustomError } from 'src/utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const emailExistenceValidator = (
 	req: Request,
@@ -17,14 +18,14 @@ export const emailExistenceValidator = (
 	})
 		.then((user) => {
 			if (user) {
-				throw new CustomError('Email already exists. Try to log in.', 400);
+				throw new CustomError(responseMsg.error_emailAlreadyExists, 400);
 			}
 
 			return next();
 		})
 		.catch((error: any) => {
 			error.error_message = error.message;
-			error.message = 'Fallo al crear el usuario.';
+			error.message = responseMsg.error_defaultMSGRegister;
 			return next(error);
 		});
 };

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import User_Model from '@models/User';
 import { CustomError } from '@utils/customError';
 import { IUserAttributes } from '@libs/typings/userAttributes';
+import { responseMsg } from '@libs/responseMsg';
 
 export const handlerIsAdmin = (
 	req: Request,
@@ -15,12 +16,12 @@ export const handlerIsAdmin = (
 		.then(() => {
 			return res.status(201).send({
 				user_isAdmin_updated: true,
-				message: 'usuario actualizado correctamente.',
+				message: responseMsg.userUpdated,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo a la hora de modificar isAdmin';
+			error.message = responseMsg.failUpdatedDataUser;
 			return next(error);
 		});
 };

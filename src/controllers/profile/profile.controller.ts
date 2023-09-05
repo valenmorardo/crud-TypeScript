@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 import User_Model from '@models/User';
+import { responseMsg } from '@libs/responseMsg';
 
 export const profileUser = (
 	req: Request,
@@ -22,7 +23,7 @@ export const profileUser = (
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo al a hora de obtener datos del perfil';
+			error.message = responseMsg.error_profileData;
 			return next(error);
 		});
 };

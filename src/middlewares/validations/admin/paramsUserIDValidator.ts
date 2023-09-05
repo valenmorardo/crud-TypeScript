@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { validations } from '@utils/allValidations';
+import { responseMsg } from '@libs/responseMsg';
 
 export const paramsUserIDValidator = (
 	req: Request,
@@ -13,7 +14,7 @@ export const paramsUserIDValidator = (
         return next()
     } catch (error: any) {
         error.error_message = error.message;
-        error.message = 'Fallo a la hora de eliminar usuario.'
+        error.message = responseMsg.failToDeleteUser
         return next(error);
     }
 };

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { validations } from '@utils/allValidations';
 import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 import { CustomError } from '@utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const createGameFieldsValidator = (
 	req: Request,
@@ -13,14 +14,9 @@ export const createGameFieldsValidator = (
 	try {
 		if (!name || !description || !price || !genres)
 			throw new CustomError(
-				'Faltan campos de datos del juego.Los campos necesarios son los siguientes:',
+				responseMsg.error_gameMissingData,
 				400,
-				{
-					name: 'string name of videogame.',
-					description: 'string description of videogame.',
-					price: 'price of videogame.',
-					genres: 'array genres of videogames.',
-				},
+				responseMsg.gameDataRequired,
 			);
 		validations.validateGameName(name);
 		validations.validateDescription(description);
@@ -30,7 +26,7 @@ export const createGameFieldsValidator = (
 	} catch (error: any) {
 		error.error_message = error.message;
 		error.additionalData = error.data;
-		error.message = 'Fallo a la hora de crear videojuego.';
+		error.message = responseMsg.error_failCreateGame;
 		return next(error);
 	}
 };

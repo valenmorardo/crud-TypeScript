@@ -3,6 +3,7 @@ import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 import User_Model from '@models/User';
 import { IUserAttributes } from '@libs/typings/userAttributes';
+import { responseMsg } from '@libs/responseMsg';
 
 export function registerUser(
 	req: Request,
@@ -21,12 +22,12 @@ export function registerUser(
 		.then(() => {
 			return res.status(201).send({
 				user_created: true,
-				message: 'El usuario se creo correctamente',
+				message: responseMsg.success_register,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo al crear el usuario.';
+			error.message = responseMsg.error_defaultMSGRegister;
 			return next(error)
 		});
 }

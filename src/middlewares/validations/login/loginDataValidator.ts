@@ -4,6 +4,7 @@ import { IUserAttributes } from '@libs/typings/userAttributes';
 import User_Model from '@models/User';
 import { CustomError } from '@utils/customError';
 import bcrypt from 'bcryptjs';
+import { responseMsg } from '@libs/responseMsg';
 
 export const loginDataValidator = (
 	req: Request,
@@ -22,7 +23,7 @@ export const loginDataValidator = (
 		.then(async (user) => {
 			if (!user)
 				throw new CustomError(
-					'Couldn’t find an account associated with this email. Try again or create an account',
+					responseMsg.error_emailDoesntExists,
 					400,
 				);
 
@@ -32,14 +33,14 @@ export const loginDataValidator = (
 			);
 
 			if (!passwordCheck)
-				throw new CustomError('Email or password is wronng. Try again', 400);
+				throw new CustomError(responseMsg.error_wrongData, 400);
 			req.userId = user.dataValues.id;
             
 			return next();
 		})
 		.catch((error: any) => {
 			error.error_message = error.message;
-			error.message = 'Fallo a la hora de logear.';
+			error.message = responseMsg.error_defaultMSGLogin;
 			return next(error);
 		});
 };

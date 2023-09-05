@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User_Model from '@models/User';
 import { CustomError } from '@utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const deleteAUser = (
 	req: Request,
@@ -12,17 +13,17 @@ export const deleteAUser = (
 	User_Model.findByPk(userId)
 		.then((user) => {
 			if (!user)
-				throw new CustomError('No se encontro usuario con ese ID.', 400);
+				throw new CustomError(responseMsg.noUserFoundMatchID, 400);
 
 			user.destroy();
 			return res.status(201).send({
 				user_deleted: true,
-				msg: 'usuario eliminado correctamente.',
+				msg: responseMsg.userDeleted,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'ADMIN SITE || Fallo a la hora de eliminar usuario';
+			error.message = responseMsg.failToDeleteUser;
             return next(error)
 		});
 };

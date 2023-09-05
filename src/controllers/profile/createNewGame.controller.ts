@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 import Videogame_Model from '@models/Videogames';
+import { responseMsg } from '@libs/responseMsg';
 
 
 export const createNewGame =  (
@@ -21,13 +22,13 @@ export const createNewGame =  (
 	})
 		.then((newGame) => {
 			return res.status(201).send({
-				message: 'Juego creado',
+				message: responseMsg.gameCreated,
 				newGame,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo a la hora de crear videojuego.';
+			error.message = responseMsg.error_failCreateGame;
 			return next(error)
 		});
 };

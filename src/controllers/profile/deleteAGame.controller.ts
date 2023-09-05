@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import Videogame_Model from '@models/Videogames';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 import { CustomError } from '@utils/customError';
+import { responseMsg } from '@libs/responseMsg';
 
 export const deleteAGame = (
 	req: Request,
@@ -20,17 +21,17 @@ export const deleteAGame = (
 	})
 		.then((game) => {
 			if (!game)
-				throw new CustomError('No posee ningun videojuego con ese ID.', 400);
+				throw new CustomError(responseMsg.noGameMatchID, 400);
 
 			game.destroy();
 			return res.status(201).send({
 				game_deleted: true,
-				msg: 'Videojuego eliminado correctamente.',
+				msg: responseMsg.gameSuccessDeleted,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.mesage = 'Fallo a la hora de eliminar videojuego';
+			error.mesage = responseMsg.failDeleteGame;
 			return next(error);
 		});
 };

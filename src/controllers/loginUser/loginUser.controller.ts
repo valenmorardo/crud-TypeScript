@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 
 import jwt from 'jsonwebtoken';
 import env from '@config/var-environments';
+import { responseMsg } from '@libs/responseMsg';
 
 export async function loginUser(
 	req: Request,
@@ -16,11 +17,11 @@ export async function loginUser(
 		);
 		return res.status(200).header('auth-token', auth_token).send({
 			logged: true,
-			message: 'Usted se encuentra ahora logeado.',
+			message: responseMsg.success_login,
 		});
 	} catch (error: any) {
 		console.log(error);
 		error.error_message = error.message;
-		error.message = 'Fallo a la hora de logear.';
+		error.message = responseMsg.error_defaultMSGLogin;
 	}
 }

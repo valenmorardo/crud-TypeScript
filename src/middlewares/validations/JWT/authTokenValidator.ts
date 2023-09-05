@@ -6,6 +6,7 @@ import { IPayloadAuthToken } from '@libs/typings/payloadAuthToken';
 
 import { CustomError } from '@utils/customError';
 import { validations } from '../../../utils/allValidations';
+import { responseMsg } from '@libs/responseMsg';
 
 export const authTokenValidator = (
 	req: Request,
@@ -15,7 +16,7 @@ export const authTokenValidator = (
 	const auth_token = req.header('auth-token');
 
 	try {
-		if (!auth_token) throw new CustomError('Fallo en la autenticacion', 400);
+		if (!auth_token) throw new CustomError(responseMsg.error_authFail, 400);
 		validations.validateIsJWT(auth_token);
 
 		const payload = jwt.verify(
@@ -23,14 +24,14 @@ export const authTokenValidator = (
 			env.JWT_SECRET || 'JWT_SECRET',
 		) as IPayloadAuthToken;
 
-		if (!payload.id) throw new CustomError('Fallo en la autenticacion', 400);
-		validations.validateIsUUID(payload.id, 'Fallo en la autenticacion');
+		if (!payload.id) throw new CustomError(responseMsg.error_authFail, 400);
+		validations.validateIsUUID(payload.id, responseMsg.error_authFail);
 
 		req.userId = payload.id;
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
-		error.message = 'Access denied. Try to log in again';
+		error.message = responseMsg.error_accessDenied;
 		return next(error);
 	}
 };

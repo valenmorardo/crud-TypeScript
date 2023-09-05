@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 import { validations } from '@utils/allValidations';
+import { responseMsg } from '@libs/responseMsg';
 
 export const paramsGameIDValidator = (
 	req: Request,
@@ -14,7 +15,7 @@ export const paramsGameIDValidator = (
         return next()
     } catch (error: any) {
         error.error_message = error.message;
-        error.message = 'Fallo a la hora de eliminar videojuego'
+        error.message = responseMsg.failDeleteGame
         return next(error)
     }
 };

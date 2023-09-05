@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import User_Model from '@models/User';
+import { responseMsg } from '@libs/responseMsg';
 
 export const getAllProfiles = (
 	req: Request,
@@ -22,7 +23,7 @@ export const getAllProfiles = (
 		})
 		.catch((error) => {
 			error.error_messgae = error.message;
-			error.message = 'ADMIN SITE || Fallo a la hora de buscar usuarios.';
+			error.message = responseMsg.failToFoundUsers;
 			return next(error);
 		});
 };
