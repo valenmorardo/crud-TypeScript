@@ -11,6 +11,8 @@ import { loginDataValidator } from './validations/login/loginDataValidator';
 import { createGameFieldsValidator } from './validations/profile/createGameFieldsValidator';
 import { paramsGameIDValidator } from './validations/profile/paramsGameIDValidator';
 
+import { paramsUserIDValidator } from './validations/admin/paramsUserIDValidator';
+
 export {
 	encryptPassword,
 	authTokenValidator,
@@ -21,5 +23,7 @@ export {
 	loginFieldsValidator,
 	loginDataValidator,
 	createGameFieldsValidator,
-	paramsGameIDValidator
+	paramsGameIDValidator,
+	paramsUserIDValidator,
+	
 };

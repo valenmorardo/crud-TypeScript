@@ -63,8 +63,8 @@ router.use(
 );
 
 router.get('/admin/getAllProfiles', controllers.getAllProfiles);
-router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
-router.put('/admin/newAdmin' /* controller.newAdmin */);
+router.delete('/admin/deleteProfile/:id', middlewares.paramsUserIDValidator, /* controller.deleteProfile */);
+router.put('/admin/newAdmin/:id', /* controller.newAdmin */);
 //~~~~~~~~~
 
 router.use(errorHandler);
