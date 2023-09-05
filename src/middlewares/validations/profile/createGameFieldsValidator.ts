@@ -29,6 +29,7 @@ export const createGameFieldsValidator = (
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
+		error.additionalData = error.data;
 		error.message = 'Fallo a la hora de crear videojuego.';
 		return next(error);
 	}
