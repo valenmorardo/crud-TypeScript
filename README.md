@@ -29,6 +29,8 @@ Debe pasarle mediante el body los siguientes datos:
 Respetar las lowercase y uppercase cuando sea necesario.
 
 
+
+### User Profile
 *Metodo GET* ---> **localhost:3001/api/profile** ---> Ruta donde se accede a los datos del usuario que se encuentre logeado.
 
 *Metodo POST* ---> **localhost:3001/api/profile/postNewGame** ---> Ruta para crear un videojuego en nombre del usuario que se encuentre logeado.
@@ -49,7 +51,7 @@ Debe pasarle mediante params los siguientes datos:
 Debe pasarle mediante params los siguientes datos:
 * *id del videojuego*
 
-
+### Admin
 
 **localhost:3001/api/admin/** ---> A las rutas /admin solo tienen acceso aquellos usuarios quienes son admins. Cuando un admin se registra, hay un campo en la base de datos que dice si es admin o no. Por defecto siempre va a ser falso.
 Para tener al menos 1 admin tendra q editarlo desde la base de datos para testear las siguientes rutas.
