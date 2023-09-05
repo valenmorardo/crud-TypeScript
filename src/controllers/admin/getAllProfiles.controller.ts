@@ -5,7 +5,7 @@ export const getAllProfiles = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
-) => {
+): Response | void=> {
 	User_Model.findAll({
 		attributes: {
 			exclude: ['password'],
