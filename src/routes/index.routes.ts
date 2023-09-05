@@ -62,7 +62,7 @@ router.use(
 	middlewares.verifyIsAdmin,
 );
 
-router.get('/admin/getAllProfiles' /* controller.getAllProfiles */);
+router.get('/admin/getAllProfiles', controllers.getAllProfiles);
 router.delete('/admin/deleteProfile' /* controller.deleteProfile */);
 router.put('/admin/newAdmin' /* controller.newAdmin */);
 //~~~~~~~~~
