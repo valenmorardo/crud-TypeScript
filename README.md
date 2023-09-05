@@ -11,7 +11,7 @@ A continuacion los pasos para poder probar esta API:
 Utilice sequelize y postgres. Si desea utilizar otra, tendra que realizar los cambios necesarios.
 3. Luego de eso, puee testear la API con TypeScript mediante el comando npm run dev. O puede compilar el codigo JS mediante npm run build y luego ejecutar npm start para testear, va a ser indiferente.
 
-## Endpoints:
+# Endpoints:
 *Metodo GET* ---> **localhost:3001/api** ---> Main route, ruta principal.
 
 
@@ -30,7 +30,7 @@ Respetar las lowercase y uppercase cuando sea necesario.
 
 
 
-### User Profile
+## User Profile
 *Metodo GET* ---> **localhost:3001/api/profile** ---> Ruta donde se accede a los datos del usuario que se encuentre logeado.
 
 *Metodo POST* ---> **localhost:3001/api/profile/postNewGame** ---> Ruta para crear un videojuego en nombre del usuario que se encuentre logeado.
@@ -51,7 +51,7 @@ Debe pasarle mediante params los siguientes datos:
 Debe pasarle mediante params los siguientes datos:
 * *id del videojuego*
 
-### Admin
+## Admin
 
 **localhost:3001/api/admin/** ---> A las rutas /admin solo tienen acceso aquellos usuarios quienes son admins. Cuando un admin se registra, hay un campo en la base de datos que dice si es admin o no. Por defecto siempre va a ser falso.
 Para tener al menos 1 admin tendra q editarlo desde la base de datos para testear las siguientes rutas.
