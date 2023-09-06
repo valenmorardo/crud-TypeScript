@@ -35,6 +35,9 @@ server.use((req: Request, res: Response, next: NextFunction) => {
 import router from '@routes/index.routes';
 const allRoutes: express.Router = router;
 
+server.get('/', (req, res) => {
+	res.json('Go to /api that is the main route :)')
+})
 server.use('/api', allRoutes);
 
 export default server;

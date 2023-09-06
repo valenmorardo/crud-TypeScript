@@ -14,24 +14,57 @@ router.get('/', (_req, res) => {
 	res.json({
 		message: 'Welcome to my videogames CRUD API',
 		Available_routes: {
-			Register: '/api/register ---> POST Method. Requires a body',
-			Login: '/api/login ---> POST Method. Requires a body',
-			Profile: {
-				Profile: '/api/profile ---> GET Method.',
-				PostNewGame:
-					'/api/profile/postNewGame ---> POST Method. Requires a body',
-				MyGames: '/api/profile/myGames ---> GET Method.',
-				DeleteAGame:
-					'/api/profile/myGames/deleteAGame/:id ---> DELETE Method. Requires an ID by params',
-				UpdateAGame:
-					'/api/profile/myGames/updateAGame/:id ---> PUT Method. Requires an ID by params',
+			Register: {
+				route: '/api/register',
+				info: 'POST Method. Requires a body.',
 			},
+
+			Login: {
+				route: '/api/login',
+				info: 'POST Method. Requires a body.',
+			},
+
+			Profile: {
+				Profile: {
+					route: '/api/profile',
+					info: 'GET Method.',
+				},
+
+				PostNewGame: {
+					route: '/api/profile/postNewGame',
+					info: 'POST Method. Requires a body',
+				},
+
+				MyGames: {
+					route: '/api/profile/myGames',
+					info: ' GET Method.',
+				},
+
+				DeleteAGame: {
+					route: '/api/profile/myGames/deleteAGame/',
+					info: 'DELETE Method. Requires an ID by params ---> .../deleteAGame/:id',
+				},
+
+				UpdateAGame: {
+					route: '/api/profile/myGames/updateAGame/',
+					info: 'PUT Method. Requires an ID by params ---> .../updateAGame/:id',
+				},
+			},
+
 			Admin: {
-				GetProfiles: '/api/admin/getAllProfiles ---> GET Method.',
-				DeleteAUser:
-					'/api/admin/deleteAUser/:id ---> DELETE Method. Requires an ID by params.',
-				handlerIsAdmin:
-					'/api//admin/handlerIsAdmin/:id ---> PUT Method. Requires an ID by params and a body.',
+				GetProfiles: {
+					route: '/api/admin/getAllProfiles',
+					info: 'GET Method.',
+				},
+
+				DeleteAUser: {
+					route: '/api/admin/deleteAUser/',
+					info: 'DELETE Method. Requires an ID by params ---> .../deleteAUser/:id',
+				},
+				handlerIsAdmin: {
+					route: '/api/admin/handlerIsAdmin/',
+					info: 'PUT Method. Requires an ID by params and a body ---> .../handlerIsAdmin/:id',
+				},
 			},
 		},
 	});

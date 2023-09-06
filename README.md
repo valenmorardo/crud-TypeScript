@@ -30,6 +30,8 @@ Debe pasarle mediante el body los siguientes datos:
 * *password*
 
 Respetar las lowercase y uppercase cuando sea necesario.
+Una vez logeado se obtiene el token de autenticacion en los headers. Se debe usar ese token para las demas rurtas, sino no tendras acceso.
+El header donde se almacena el token de autenticacion se llama 'auth-token'. Respetar el nombre.
 
 
 
