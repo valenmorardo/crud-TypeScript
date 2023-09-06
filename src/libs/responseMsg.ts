@@ -1,4 +1,5 @@
 import { IAdditionalDataError } from '@libs/typings/additionalDataError';
+import { genres_videogames } from './typings/videogameAttributes';
 
 // validations error messages
 // UserName
@@ -47,8 +48,8 @@ const error_gamePriceIsNotNumber: string =
 const error_gameGenresIsntArray: string =
 	'The genre or genres must be within an array.';
 const error_gameGenresEmpty: string = 'There must be at least one genre.';
-const error_gameGenresInvalid: string = 'One or more genres are not valid.';
-
+const error_gameGenresInvalid: string = `One or more genres are not valid. Genres available: ${Object.values(genres_videogames).map((genre) => ' ' + genre )}`;
+ 
 // UUID
 const error_notUUID: string = 'That ID does not exist.';
 
@@ -90,11 +91,13 @@ const error_accessDenied: string = 'Access denied. Try to log in again';
 const error_profileData: string = 'Failed to retrieve profile data.';
 const error_gameMissingData: string =
 	'Game data fields are missing. The required fields are as follows';
+
+
 const gameDataRequired: IAdditionalDataError = {
 	name: 'string name of video game.',
 	description: 'string description of video game.',
 	price: 'price of video game.',
-	genres: 'array genres of video games.',
+	genres: `array genres of video games. Genres available: ${Object.values(genres_videogames).map((genre) => ' ' + genre )} `,
 };
 const gameCreated: string = 'Game created';
 const notFoundGamesInProperty: string = 'No games found in your ownership.';
