@@ -10,7 +10,19 @@ export const deleteAUser = (
 ) => {
 	const userId: string = req.params.id;
 
-	User_Model.findByPk(userId)
+	User_Model.destroy({where: {id: userId}}).then(() => {
+		return res.status(201).send({
+			user_deleted: true,
+			msg: responseMsg.userDeleted,
+		});
+	}).catch((error) => {
+		error.error_message = error.message;
+		error.message = responseMsg.failToDeleteUser;
+		return next(error)
+	});
+
+
+	/* User_Model.findByPk(userId)
 		.then((user) => {
 			if (!user)
 				throw new CustomError(responseMsg.noUserFoundMatchID, 400);
@@ -25,5 +37,5 @@ export const deleteAUser = (
 			error.error_message = error.message;
 			error.message = responseMsg.failToDeleteUser;
             return next(error)
-		});
+		}); */
 };
