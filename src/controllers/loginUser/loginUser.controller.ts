@@ -20,7 +20,7 @@ export async function loginUser(
 			message: responseMsg.success_login,
 		});
 	} catch (error: any) {
-		console.log(error);
+		
 		error.error_message = error.message;
 		error.message = responseMsg.error_defaultMSGLogin;
 	}

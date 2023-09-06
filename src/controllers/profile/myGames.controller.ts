@@ -21,7 +21,7 @@ export const getMyGames = (
 		},
 	})
 		.then((games) => {
-			console.log(games);
+			
 			if (!games.length)
 				throw new CustomError(responseMsg.notFoundGamesInProperty, 400);
 
