@@ -61,11 +61,15 @@ Para tener al menos 1 admin tendra q editarlo desde la base de datos para testea
 
 *Metodo GET* ---> **localhost:3001/api/admin/getAllProfiles** ---> Ruta donde los administradores pueden visualizar todos los usuarios registrados.
 
-*Metodo DELETE* ---> **localhost:3001/api/admin/deleteProfile/:id** ---> Ruta donde los administradores pueden visualizar todos los usuarios registrados.
+*Metodo DELETE* ---> **localhost:3001/api/admin/deleteProfile/:id** ---> Ruta donde los administradores pueden eliminar a un usuario (ID).
+Debe pasarle mediante params los siguientes datos:
+* *id del usuario*
 
 *Metodo PUT* ---> **localhost:3001/api/admin/handlerIsAdmin/:id** ---> Ruta donde los administradores pueden actualizar si cierto usuario (ID) es admin o no.
 Debe pasarle mediante params los siguientes datos:
 * *id del usuario*
+Debe pasarle mediante body los siguientes datos:
+* *isAdmin* --> booleano
 
 Respetar las lowercase y uppercase cuando sea necesario.
 
