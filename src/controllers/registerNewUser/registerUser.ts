@@ -15,7 +15,7 @@ export function registerUser(
 
 	User_Model.create({
 		name: name.trim(),
-		email,
+		email: email.trim(),
 		password: encryptedPassword,
 	})
 		.then(() => {
