@@ -4,6 +4,7 @@ Esta aplicacion es, basicamente, un CRUD donde cada usuario se registra con emai
 
 Hice esta api para practicar typescript y ciertas cosas como encriptar datos y JWT.
 
+
 A continuacion los pasos para poder probar esta API:
 
 1. Una vez que tengas acceso al repositorio en tu PC, ejecutar npm install para tener acceso a todas las dependencias y librerias.
@@ -72,6 +73,12 @@ Debe pasarle mediante body los siguientes datos:
 * *isAdmin* --> booleano
 
 Respetar las lowercase y uppercase cuando sea necesario.
+
+
+
+La API tambien esta deployada correctamente en: https://videogamestscrud.onrender.com/api
+Funciona con las mismas rutas, obviamente. 
+Recomiendo testearla de forma local para poder tener acceso a la base de datos y poder testear la ruta /admin
 
 
 
