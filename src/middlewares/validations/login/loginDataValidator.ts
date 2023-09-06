@@ -22,10 +22,7 @@ export const loginDataValidator = (
 	})
 		.then(async (user) => {
 			if (!user)
-				throw new CustomError(
-					responseMsg.error_emailDoesntExists,
-					400,
-				);
+				throw new CustomError(responseMsg.error_emailDoesntExists, 400);
 
 			const passwordCheck: boolean = await bcrypt.compare(
 				passwordBody,
@@ -35,7 +32,7 @@ export const loginDataValidator = (
 			if (!passwordCheck)
 				throw new CustomError(responseMsg.error_wrongData, 400);
 			req.userId = user.dataValues.id;
-            
+
 			return next();
 		})
 		.catch((error: any) => {

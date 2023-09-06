@@ -5,7 +5,7 @@ import Videogame_Model from '@models/Videogames';
 import { CustomError } from '@utils/customError';
 import { responseMsg } from '@libs/responseMsg';
 
-export const getMyGames =  (
+export const getMyGames = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
@@ -21,23 +21,22 @@ export const getMyGames =  (
 		},
 	})
 		.then((games) => {
-			console.log(games)
+			console.log(games);
 			if (!games.length)
 				throw new CustomError(responseMsg.notFoundGamesInProperty, 400);
 
-				const videogames = games.map((game) => {
-					return game.dataValues
-				})
-		
+			const videogames = games.map((game) => {
+				return game.dataValues;
+			});
+
 			return res.status(200).send({
 				games_founded: true,
 				videogames,
-			
-			})
+			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = responseMsg.error_obtainUserGames
-			return next(error)
+			error.message = responseMsg.error_obtainUserGames;
+			return next(error);
 		});
 };

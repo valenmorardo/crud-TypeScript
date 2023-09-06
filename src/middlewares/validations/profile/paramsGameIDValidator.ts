@@ -8,14 +8,14 @@ export const paramsGameIDValidator = (
 	res: Response,
 	next: NextFunction,
 ): Response | void => {
-    const gameId: string = req.params.id;
- 
-    try {
-        validations.validateIsUUID(gameId);
-        return next()
-    } catch (error: any) {
-        error.error_message = error.message;
-        error.message = responseMsg.failDeleteGame
-        return next(error)
-    }
+	const gameId: string = req.params.id;
+
+	try {
+		validations.validateIsUUID(gameId);
+		return next();
+	} catch (error: any) {
+		error.error_message = error.message;
+		error.message = responseMsg.failDeleteGame;
+		return next(error);
+	}
 };

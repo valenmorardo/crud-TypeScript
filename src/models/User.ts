@@ -39,7 +39,7 @@ const User_Model = Database.define<Model, IUserAttributes>(
 
 User_Model.hasMany(Videogame_Model, {
 	foreignKey: 'ownerUserId',
-	onDelete: 'CASCADE'
+	onDelete: 'CASCADE',
 });
 
 export default User_Model;

@@ -7,14 +7,14 @@ export const paramsUserIDValidator = (
 	res: Response,
 	next: NextFunction,
 ) => {
-    const userId: string = req.params.id;
+	const userId: string = req.params.id;
 
-    try {
-        validations.validateIsUUID(userId);
-        return next()
-    } catch (error: any) {
-        error.error_message = error.message;
-        error.message = responseMsg.failToDeleteUser
-        return next(error);
-    }
+	try {
+		validations.validateIsUUID(userId);
+		return next();
+	} catch (error: any) {
+		error.error_message = error.message;
+		error.message = responseMsg.failToDeleteUser;
+		return next(error);
+	}
 };

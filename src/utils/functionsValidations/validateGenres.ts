@@ -6,10 +6,7 @@ import { responseMsg } from '@libs/responseMsg';
 
 export const validateGenres = (genres: Array<genres_videogames>): boolean => {
 	if (!Array.isArray(genres))
-		throw new CustomError(
-			responseMsg.error_gameGenresIsntArray,
-			400,
-		);
+		throw new CustomError(responseMsg.error_gameGenresIsntArray, 400);
 	if (!genres.length)
 		throw new CustomError(responseMsg.error_gameGenresEmpty, 400);
 	if (

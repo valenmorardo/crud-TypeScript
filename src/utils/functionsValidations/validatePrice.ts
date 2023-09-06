@@ -10,10 +10,7 @@ export const validatePrice = (price: number): boolean => {
 		!validator.isInt(price.toString()) ||
 		!validator.isFloat(price.toString())
 	) {
-		throw new CustomError(
-			responseMsg.error_gamePriceIsNotNumber,
-			400,
-		);
+		throw new CustomError(responseMsg.error_gamePriceIsNotNumber, 400);
 	}
 	return true;
 };

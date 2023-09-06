@@ -20,8 +20,7 @@ export const deleteAGame = (
 		},
 	})
 		.then((game) => {
-			if (!game)
-				throw new CustomError(responseMsg.noGameMatchID, 400);
+			if (!game) throw new CustomError(responseMsg.noGameMatchID, 400);
 
 			game.destroy();
 			return res.status(201).send({

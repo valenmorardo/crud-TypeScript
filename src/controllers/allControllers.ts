@@ -23,5 +23,5 @@ export {
 	getAllProfiles,
 	deleteAUser,
 	handlerIsAdmin,
-	updateAGame
+	updateAGame,
 };

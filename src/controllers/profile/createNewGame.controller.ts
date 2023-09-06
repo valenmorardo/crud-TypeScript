@@ -4,8 +4,7 @@ import { IVideogameAttributes } from '@libs/typings/videogameAttributes';
 import Videogame_Model from '@models/Videogames';
 import { responseMsg } from '@libs/responseMsg';
 
-
-export const createNewGame =  (
+export const createNewGame = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
@@ -29,6 +28,6 @@ export const createNewGame =  (
 		.catch((error) => {
 			error.error_message = error.message;
 			error.message = responseMsg.error_failCreateGame;
-			return next(error)
+			return next(error);
 		});
 };

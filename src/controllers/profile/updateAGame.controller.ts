@@ -34,14 +34,16 @@ export const updateAGame = (
 	Videogame_Model.update(
 		{ name, price, description, genres },
 		{ where: { id: gameId } },
-	).then(() => {
-        return res.status(201).send({
-            user_isAdmin_updated: true,
-            message: responseMsg.updateGameSuccess,
-        });
-    }).catch((error) => {
-        error.error_message = error.message;
-        error.message = responseMsg.failUpdateGame;
-        return next(error);
-    });
+	)
+		.then(() => {
+			return res.status(201).send({
+				user_isAdmin_updated: true,
+				message: responseMsg.updateGameSuccess,
+			});
+		})
+		.catch((error) => {
+			error.error_message = error.message;
+			error.message = responseMsg.failUpdateGame;
+			return next(error);
+		});
 };

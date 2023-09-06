@@ -10,7 +10,6 @@ export function registerUser(
 	res: Response,
 	next: NextFunction,
 ): Response | void {
-
 	const { name, email }: IUserAttributes = req.body;
 	const { encryptedPassword } = req;
 
@@ -28,6 +27,6 @@ export function registerUser(
 		.catch((error) => {
 			error.error_message = error.message;
 			error.message = responseMsg.error_defaultMSGRegister;
-			return next(error)
+			return next(error);
 		});
 }

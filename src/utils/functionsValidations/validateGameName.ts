@@ -12,10 +12,7 @@ export const validateGameName = (gameName: string): boolean => {
 	if (validator.isEmpty(gameName.trim()))
 		throw new CustomError(responseMsg.error_gameNameIsEmpty, 400);
 	if (patronEspBlanc.test(gameName))
-		throw new CustomError(
-			responseMsg.error_gameNameNotWhitespaces,
-			400,
-		);
+		throw new CustomError(responseMsg.error_gameNameNotWhitespaces, 400);
 
 	return true;
 };

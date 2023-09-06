@@ -40,14 +40,20 @@ router.use(
 router.get('/profile', controllers.profileUser);
 router.post(
 	'/profile/postNewGame',
-	middlewares.createGameFieldsValidator, controllers.createNewGame,
+	middlewares.createGameFieldsValidator,
+	controllers.createNewGame,
 );
 router.get('/profile/myGames', controllers.getMyGames);
 router.delete(
 	'/profile/myGames/deleteAGame/:id',
-	middlewares.paramsGameIDValidator, controllers.deleteAGame,
+	middlewares.paramsGameIDValidator,
+	controllers.deleteAGame,
 );
-router.put('/profile/myGames/updateAGame/:id', middlewares.paramsGameIDValidator, controllers.updateAGame)
+router.put(
+	'/profile/myGames/updateAGame/:id',
+	middlewares.paramsGameIDValidator,
+	controllers.updateAGame,
+);
 //~~~~~~~~~
 
 // home // all games
@@ -64,8 +70,16 @@ router.use(
 );
 
 router.get('/admin/getAllProfiles', controllers.getAllProfiles);
-router.delete('/admin/deleteProfile/:id', middlewares.paramsUserIDValidator, controllers.deleteAUser);
-router.put('/admin/handlerIsAdmin/:id', middlewares.paramsUserIDValidator, controllers.handlerIsAdmin);
+router.delete(
+	'/admin/deleteProfile/:id',
+	middlewares.paramsUserIDValidator,
+	controllers.deleteAUser,
+);
+router.put(
+	'/admin/handlerIsAdmin/:id',
+	middlewares.paramsUserIDValidator,
+	controllers.handlerIsAdmin,
+);
 //~~~~~~~~~
 
 router.use(errorHandler);
