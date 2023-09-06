@@ -11,7 +11,30 @@ const router: Router = Router();
 //~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 router.get('/', (_req, res) => {
-	res.json({ message: 'Welcome to my videogames CRUD API' });
+	res.json({
+		message: 'Welcome to my videogames CRUD API',
+		Available_routes: {
+			Register: '/api/register ---> POST Method. Requires a body',
+			Login: '/api/login ---> POST Method. Requires a body',
+			Profile: {
+				Profile: '/api/profile ---> GET Method.',
+				PostNewGame:
+					'/api/profile/postNewGame ---> POST Method. Requires a body',
+				MyGames: '/api/profile/myGames ---> GET Method.',
+				DeleteAGame:
+					'/api/profile/myGames/deleteAGame/:id ---> DELETE Method. Requires an ID by params',
+				UpdateAGame:
+					'/api/profile/myGames/updateAGame/:id ---> PUT Method. Requires an ID by params',
+			},
+			Admin: {
+				GetProfiles: '/api/admin/getAllProfiles ---> GET Method.',
+				DeleteAUser:
+					'/api/admin/deleteAUser/:id ---> DELETE Method. Requires an ID by params.',
+				handlerIsAdmin:
+					'/api//admin/handlerIsAdmin/:id ---> PUT Method. Requires an ID by params and a body.',
+			},
+		},
+	});
 });
 
 // login & register
@@ -58,7 +81,7 @@ router.put(
 
 // home // all games
 /* router.use('/allGames', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify)
-router.get('/allGames'); */
+	router.get('/allGames'); */
 //~~~~~~~~~
 
 // Admin routes
@@ -71,7 +94,7 @@ router.use(
 
 router.get('/admin/getAllProfiles', controllers.getAllProfiles);
 router.delete(
-	'/admin/deleteProfile/:id',
+	'/admin/deleteAUser/:id',
 	middlewares.paramsUserIDValidator,
 	controllers.deleteAUser,
 );
