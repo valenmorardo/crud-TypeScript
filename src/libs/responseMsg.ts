@@ -105,6 +105,11 @@ const noGameMatchID: string = 'You do not own any video game with that ID';
 
 const gameSuccessDeleted: string = 'Video game deleted successfully';
 
+const failUpdateGame: string = 'Failed to update video game'
+const updateGameSuccess: string = 'Videogame success updated'
+ 
+
+
 // ADMIN
 const accesDeniedADM: string = "You don't have permission to access here";
 const accesDeniedDefault: string = 'Access denied';
@@ -119,6 +124,9 @@ const failUpdatedDataUser: string = 'Failed to modify user.'
 
 
 export const responseMsg = {
+	updateGameSuccess,
+	failUpdateGame,
+
 	failUpdatedDataUser,
 	userUpdated,
 	noUserFoundMatchID,

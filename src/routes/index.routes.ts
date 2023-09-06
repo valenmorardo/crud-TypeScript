@@ -47,6 +47,7 @@ router.delete(
 	'/profile/myGames/deleteAGame/:id',
 	middlewares.paramsGameIDValidator, controllers.deleteAGame,
 );
+router.put('/profile/myGames/updateAGame/:id', middlewares.paramsGameIDValidator, controllers.updateAGame)
 //~~~~~~~~~
 
 // home // all games
