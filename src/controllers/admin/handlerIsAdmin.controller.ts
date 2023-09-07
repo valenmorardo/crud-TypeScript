@@ -9,7 +9,7 @@ export const handlerIsAdmin = (
 	res: Response,
 	next: NextFunction,
 ): Response | void => {
-	const { isAdmin }: IUserAttributes = req.body;
+	const { isAdmin } = req.body;
 	const userId = req.params.id;
 
 	User_Model.update({ isAdmin }, { where: { id: userId } })
