@@ -13,6 +13,7 @@ const router: Router = Router();
 router.get('/', (_req, res) => {
 	res.json({
 		message: 'Welcome to my videogames CRUD API',
+		repository: 'https://github.com/valenmorardo/crud-TypeScript',
 		Available_routes: {
 			Register: {
 				route: '/api/register',
@@ -25,7 +26,7 @@ router.get('/', (_req, res) => {
 			},
 
 			Profile: {
-				Profile: {
+				ProfileData: {
 					route: '/api/profile',
 					info: 'GET Method.',
 				},
@@ -52,8 +53,8 @@ router.get('/', (_req, res) => {
 			},
 
 			Admin: {
-				GetProfiles: {
-					route: '/api/admin/getAllProfiles',
+				GetAllUsers: {
+					route: '/api/admin/getAllUsers',
 					info: 'GET Method.',
 				},
 
@@ -61,9 +62,15 @@ router.get('/', (_req, res) => {
 					route: '/api/admin/deleteAUser/',
 					info: 'DELETE Method. Requires an ID by params ---> .../deleteAUser/:id',
 				},
-				handlerIsAdmin: {
-					route: '/api/admin/handlerIsAdmin/',
-					info: 'PUT Method. Requires an ID by params and a body ---> .../handlerIsAdmin/:id',
+				handlerAdmins: {
+					addAdmin: {
+						route: '/api/admin/handlerAdmins/add',
+						info: 'POST Method. Requires an ID by body',
+					},
+					removeAdmin: {
+						route: '/api/admin/handlerAdmins/remove/',
+						info: 'DELETE Method. Requires an ID by params ---> .../handlerAdmins/remove/:id',
+					}
 				},
 			},
 		},
