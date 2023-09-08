@@ -11,22 +11,18 @@ export const verifyIsAdmin = (
 	next: NextFunction,
 ): Response | void => {
 	const userId = req.userId;
-	console.log(userId)
+	console.log(userId);
 
 	Admin_Model.findOne({
-		
 		where: {
 			userId,
-		}
+		},
 	})
 		.then((user) => {
-			console.log(user)
-			if (!user)
-				throw new CustomError(responseMsg.accesDeniedADM, 400);
+			if (!user) throw new CustomError(responseMsg.accesDeniedADM, 400);
 			return next();
 		})
 		.catch((error) => {
-			console.log('xd')
 			error.error_message = error.message;
 			error.message = responseMsg.accesDeniedDefault;
 			return next(error);
