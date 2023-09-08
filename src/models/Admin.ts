@@ -7,6 +7,7 @@ const Admin_Model = Database.define<Model, IAdminAttributes>(
 	{
 		adminId: {
 			type: DataTypes.UUID,
+			defaultValue: DataTypes.UUIDV4,
 			allowNull: false,
 			primaryKey: true,
 			unique: true,
