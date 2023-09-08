@@ -5,7 +5,7 @@ import { IAdminAttributes } from '@libs/typings/adminAttributes';
 const Admin_Model = Database.define<Model, IAdminAttributes>(
 	'admin',
 	{
-		id: {
+		adminId: {
 			type: DataTypes.UUID,
 			allowNull: false,
 			primaryKey: true,

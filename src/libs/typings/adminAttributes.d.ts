@@ -1,3 +1,3 @@
 export interface IAdminAttributes {
-	id: string;
+	adminId: string;
 }
