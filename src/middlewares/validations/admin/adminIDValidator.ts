@@ -17,7 +17,7 @@ export const adminIDValidator = (
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
-		error.message = responseMsg.failToDeleteUser;
+		error.message = "fallo a la hora de comprobar ID";
 		return next(error);
 	}
 };

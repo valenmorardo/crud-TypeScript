@@ -7,7 +7,7 @@ import { getMyGames } from './profile/myGames.controller';
 
 import { deleteAGame } from './profile/deleteAGame.controller';
 
-import { getAllProfiles } from './admin/getAllProfiles.controller';
+import { getAllUsers } from './admin/getAllProfiles.controller';
 import { deleteAUser } from './admin/deleteAUser.controller';
 import { addAdmin } from './admin/addAdmin.controller';
 
@@ -24,7 +24,7 @@ export {
 	createNewGame,
 	getMyGames,
 	deleteAGame,
-	getAllProfiles,
+	getAllUsers,
 	deleteAUser,
 	addAdmin,
 	updateAGame,

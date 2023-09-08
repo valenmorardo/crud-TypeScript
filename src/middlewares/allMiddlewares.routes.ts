@@ -1,4 +1,4 @@
-import { encryptPassword } from './encryptPassword';
+import { encryptPassword } from './validations/register/encryptPassword';
 import { authTokenValidator } from './validations/JWT/authTokenValidator';
 import { payloadIDExcistenseValidator } from './validations/JWT/payloadIDExcistenseValidator';
 import { verifyIsAdmin } from './validations/admin/verifyIsAdmin';

@@ -125,7 +125,7 @@ router.use(
 	middlewares.verifyIsAdmin,
 );
 
-router.get('/admin/getAllProfiles', controllers.getAllProfiles);
+router.get('/admin/getAllUsers', controllers.getAllUsers);
 router.delete(
 	'/admin/deleteAUser/:userId',
 	middlewares.adminIDValidator,
@@ -141,7 +141,7 @@ router.post(
 
 router.delete(
 	'/admin/handlerAdmins/remove/:adminId',
-	
+	middlewares.adminIDValidator,
 	controllers.removeAdmin
 );
 //~~~~~~~~~

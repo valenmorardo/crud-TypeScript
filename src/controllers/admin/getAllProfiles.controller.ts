@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import User_Model from '@models/User';
 import { responseMsg } from '@libs/responseMsg';
 
-export const getAllProfiles = (
+export const getAllUsers = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
