@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { httpStatusCodes } from '@libs/httpStatusCodes';
 
-import User_Model from '@models/User';
+import Admin_Model from '@models/Admin';
 import { CustomError } from '@utils/customError';
 import { responseMsg } from '@libs/responseMsg';
 
@@ -12,10 +12,13 @@ export const verifyIsAdmin = (
 ): Response | void => {
 	const userId = req.userId;
 
-	User_Model.findByPk(userId)
+	Admin_Model.findOne({
+		where: {
+			userId,
+		},
+	})
 		.then((user) => {
-			if (!user?.dataValues.isAdmin)
-				throw new CustomError(responseMsg.accesDeniedADM, 400);
+			if (!user) throw new CustomError(responseMsg.accesDeniedADM, 400);
 			return next();
 		})
 		.catch((error) => {

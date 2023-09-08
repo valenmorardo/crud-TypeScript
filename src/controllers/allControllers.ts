@@ -9,9 +9,13 @@ import { deleteAGame } from './profile/deleteAGame.controller';
 
 import { getAllProfiles } from './admin/getAllProfiles.controller';
 import { deleteAUser } from './admin/deleteAUser.controller';
-import { handlerIsAdmin } from './admin/handlerIsAdmin.controller';
+import { addAdmin } from './admin/addAdmin.controller';
 
 import { updateAGame } from './profile/updateAGame.controller';
+import { getAllAdmins } from './admin/getAllAdmins.controller';
+
+import { removeAdmin } from './admin/removeAdmin.controller';
+
 
 export {
 	registerUser,
@@ -22,6 +26,8 @@ export {
 	deleteAGame,
 	getAllProfiles,
 	deleteAUser,
-	handlerIsAdmin,
+	addAdmin,
 	updateAGame,
+	getAllAdmins,
+	removeAdmin,
 };

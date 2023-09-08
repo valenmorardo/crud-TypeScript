@@ -127,14 +127,22 @@ router.use(
 
 router.get('/admin/getAllProfiles', controllers.getAllProfiles);
 router.delete(
-	'/admin/deleteAUser/:id',
-	middlewares.paramsUserIDValidator,
+	'/admin/deleteAUser/:userId',
+	middlewares.adminIDValidator,
 	controllers.deleteAUser,
 );
-router.put(
-	'/admin/handlerIsAdmin/:id',
-	middlewares.paramsUserIDValidator,
-	controllers.handlerIsAdmin,
+router.get('/admin/getAllAdmins', controllers.getAllAdmins);
+
+router.post(
+	'/admin/handlerAdmins/add',
+	middlewares.userIdBodyValidator,
+	controllers.addAdmin,
+);
+
+router.delete(
+	'/admin/handlerAdmins/remove/:adminId',
+	
+	controllers.removeAdmin
 );
 //~~~~~~~~~
 

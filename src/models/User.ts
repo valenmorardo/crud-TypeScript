@@ -3,6 +3,7 @@ import Database from '@config/database';
 
 import { IUserAttributes } from '@libs/typings/userAttributes';
 import Videogame_Model from './Videogames';
+import Admin_Model from './Admin';
 
 const User_Model = Database.define<Model, IUserAttributes>(
 	'user',
@@ -27,10 +28,7 @@ const User_Model = Database.define<Model, IUserAttributes>(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		isAdmin: {
-			type: DataTypes.BOOLEAN,
-			defaultValue: false,
-		},
+
 	},
 	{
 		timestamps: false,
@@ -41,5 +39,9 @@ User_Model.hasMany(Videogame_Model, {
 	foreignKey: 'ownerUserId',
 	onDelete: 'CASCADE',
 });
+
+
+User_Model.hasOne(Admin_Model)
+Admin_Model.belongsTo(User_Model)
 
 export default User_Model;

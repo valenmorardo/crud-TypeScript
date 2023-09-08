@@ -1,27 +1,28 @@
 import { Request, Response, NextFunction } from 'express';
-import User_Model from '@models/User';
+
 import { CustomError } from '@utils/customError';
 import { IUserAttributes } from '@libs/typings/userAttributes';
 import { responseMsg } from '@libs/responseMsg';
+import Admin_Model from '@models/Admin';
 
-export const handlerIsAdmin = (
+export const addAdmin = (
 	req: Request,
 	res: Response,
 	next: NextFunction,
 ): Response | void => {
-	const { isAdmin }: IUserAttributes = req.body;
-	const userId = req.params.id;
+	const userId = req.body.userId;
 
-	User_Model.update({ isAdmin }, { where: { id: userId } })
-		.then(() => {
+	Admin_Model.create({
+		userId,
+	})
+		.then((newAdmin) => {
 			return res.status(201).send({
-				user_isAdmin_updated: true,
-				message: responseMsg.userUpdated,
+				msg: 'New admin added.',
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = responseMsg.failUpdatedDataUser;
+			error.message = 'Fallo a la hora de agregar admin.';
 			return next(error);
 		});
 };
