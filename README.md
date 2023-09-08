@@ -62,17 +62,26 @@ Debe pasarle mediante params los siguientes datos:
 **localhost:3001/api/admin/** ---> A las rutas /admin solo tienen acceso aquellos usuarios quienes son admins. Cuando un admin se registra, hay un campo en la base de datos que dice si es admin o no. Por defecto siempre va a ser falso.
 Para tener al menos 1 admin tendra q editarlo desde la base de datos para testear las siguientes rutas.
 
-*Metodo GET* ---> **localhost:3001/api/admin/getAllProfiles** ---> Ruta donde los administradores pueden visualizar todos los usuarios registrados.
+*Metodo GET* ---> **localhost:3001/api/admin/getAllUsers** ---> Ruta donde los administradores pueden visualizar todos los usuarios registrados.
 
-*Metodo DELETE* ---> **localhost:3001/api/admin/deleteProfile/:id** ---> Ruta donde los administradores pueden eliminar a un usuario (ID).
+*Metodo DELETE* ---> **localhost:3001/api/admin/deleteAUser/:id** ---> Ruta donde los administradores pueden eliminar a un usuario (ID).
 Debe pasarle mediante params los siguientes datos:
 * *id del usuario*
 
-*Metodo PUT* ---> **localhost:3001/api/admin/handlerIsAdmin/:id** ---> Ruta donde los administradores pueden actualizar si cierto usuario (ID) es admin o no.
-Debe pasarle mediante params los siguientes datos:
-* *id del usuario*
+*Metodo GET* ---> **localhost:3001/api/admin/getAllAdmins** ---> Ruta donde los administradores pueden visualizar todos los administradores.
+
+*Metodo POST* ---> **localhost:3001/api/admin/handlerAdmins/add** ---> Ruta donde los administradores pueden eliminar a un usuario (ID).
 Debe pasarle mediante body los siguientes datos:
-* *isAdmin* --> booleano
+* *userId*
+
+*Metodo DELETE* ---> **localhost:3001/api/admin/handlerAdmins/remove/:id** ---> Ruta donde los administradores pueden remover a un admin(ID).
+Debe pasarle mediante params los siguientes datos:
+* *id del admin*
+
+
+
+
+
 
 Respetar las lowercase y uppercase cuando sea necesario.
 
