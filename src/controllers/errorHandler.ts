@@ -1,11 +1,10 @@
-import { Request, Response, ErrorRequestHandler } from 'express';
-
+import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 
 export const errorHandler: ErrorRequestHandler = (
 	error,
 	_req,
 	res,
-
+	_next,
 ): Response => {
 	const status: number = error.response ? error.response.status : error.status;
 
