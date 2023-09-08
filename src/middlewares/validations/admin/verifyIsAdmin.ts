@@ -11,7 +11,6 @@ export const verifyIsAdmin = (
 	next: NextFunction,
 ): Response | void => {
 	const userId = req.userId;
-	console.log(userId);
 
 	Admin_Model.findOne({
 		where: {
