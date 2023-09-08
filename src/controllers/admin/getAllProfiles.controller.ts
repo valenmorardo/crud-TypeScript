@@ -22,7 +22,7 @@ export const getAllProfiles = (
 			});
 		})
 		.catch((error) => {
-			error.error_messgae = error.message;
+			error.error_message = error.message;
 			error.message = responseMsg.failToFoundUsers;
 			return next(error);
 		});

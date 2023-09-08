@@ -17,7 +17,7 @@ export const getAllAdmins = (
 		}
 	})
 		.then((admins) => {
-            throw new CustomError('xd', 400)
+            
 			const allAdmins = admins.map((admin) => {
 				return admin.dataValues;
 			});
