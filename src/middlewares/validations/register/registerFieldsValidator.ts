@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 import { IUserAttributes } from '@libs/typings/userAttributes';
 

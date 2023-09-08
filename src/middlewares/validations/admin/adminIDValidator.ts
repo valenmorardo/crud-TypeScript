@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { validations } from '@utils/allValidations';
 import { responseMsg } from '@libs/responseMsg';
-import User_Model from '@models/User';
 
 export const adminIDValidator = (
 	req: Request,

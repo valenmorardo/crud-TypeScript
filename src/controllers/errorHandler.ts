@@ -1,11 +1,11 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
-import { httpStatusCodes } from '@libs/httpStatusCodes';
+import { Request, Response, ErrorRequestHandler } from 'express';
+
 
 export const errorHandler: ErrorRequestHandler = (
 	error,
-	req,
+	_req,
 	res,
-	next,
+
 ): Response => {
 	const status: number = error.response ? error.response.status : error.status;
 

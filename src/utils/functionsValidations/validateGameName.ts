@@ -3,7 +3,6 @@ import { CustomError } from '@utils/customError';
 import validator from 'validator';
 
 export const validateGameName = (gameName: string): boolean => {
-	const patronMayusMin: RegExp = /^[A-Za-z\s]+$/;
 	const patronEspBlanc: RegExp = /(\s{2,})/g;
 
 	if (!validator.isAscii(gameName))

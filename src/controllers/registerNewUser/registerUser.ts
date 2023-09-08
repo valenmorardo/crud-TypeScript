@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { httpStatusCodes } from '@libs/httpStatusCodes';
 
 import User_Model from '@models/User';
 import { IUserAttributes } from '@libs/typings/userAttributes';

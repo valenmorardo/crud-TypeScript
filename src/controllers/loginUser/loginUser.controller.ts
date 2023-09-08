@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 import jwt from 'jsonwebtoken';
 import env from '@config/var-environments';
@@ -7,7 +7,7 @@ import { responseMsg } from '@libs/responseMsg';
 export async function loginUser(
 	req: Request,
 	res: Response,
-	next: NextFunction,
+
 ): Promise<Response | void> {
 	try {
 		const auth_token: string = jwt.sign(

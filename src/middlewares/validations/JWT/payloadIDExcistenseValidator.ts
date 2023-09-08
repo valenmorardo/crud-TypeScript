@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 
 import User_Model from '@models/User';
 import { CustomError } from '@utils/customError';
-import { validations } from '../../../utils/allValidations';
 import { responseMsg } from '@libs/responseMsg';
 
 export const payloadIDExcistenseValidator = async (

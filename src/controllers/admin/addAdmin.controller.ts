@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { CustomError } from '@utils/customError';
-import { IUserAttributes } from '@libs/typings/userAttributes';
+
 import { responseMsg } from '@libs/responseMsg';
 import Admin_Model from '@models/Admin';
 
@@ -15,7 +14,7 @@ export const addAdmin = (
 	Admin_Model.create({
 		userId,
 	})
-		.then((newAdmin) => {
+		.then(() => {
 			return res.status(201).send({
 				msg: responseMsg.newAdmin,
 			});

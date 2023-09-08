@@ -1,4 +1,3 @@
-import validator from 'validator';
 import { CustomError } from '@utils/customError';
 
 import { genres_videogames } from '@libs/typings/videogameAttributes';

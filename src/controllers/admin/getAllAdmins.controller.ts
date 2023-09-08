@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import Admin_Model from '@models/Admin';
 import User_Model from '@models/User';
 import { responseMsg } from '@libs/responseMsg';
-import { CustomError } from '@utils/customError';
+
 
 export const getAllAdmins = (
 	req: Request,
