@@ -14,6 +14,8 @@ import { addAdmin } from './admin/addAdmin.controller';
 import { updateAGame } from './profile/updateAGame.controller';
 import { getAllAdmins } from './admin/getAllAdmins.controller';
 
+import { removeAdmin } from './admin/removeAdmin.controller';
+
 
 export {
 	registerUser,
@@ -27,4 +29,5 @@ export {
 	addAdmin,
 	updateAGame,
 	getAllAdmins,
+	removeAdmin,
 };

@@ -135,12 +135,13 @@ router.get('/admin/getAllAdmins', controllers.getAllAdmins);
 
 router.post(
 	'/admin/handlerAdmins/add',
-	
 	controllers.addAdmin,
 );
+
 router.delete(
-	'/admin/handlerAdmins/remove/:userId',
-	middlewares.paramsUserIDValidator,
+	'/admin/handlerAdmins/remove/:adminId',
+	
+	controllers.removeAdmin
 );
 //~~~~~~~~~
 
