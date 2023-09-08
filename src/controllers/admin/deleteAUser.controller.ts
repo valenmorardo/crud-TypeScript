@@ -8,10 +8,11 @@ export const deleteAUser = (
 	res: Response,
 	next: NextFunction,
 ) => {
-	const userId: string = req.params.id;
+	const userId: string = req.params.userId;
 
 	User_Model.destroy({ where: { id: userId } })
-		.then(() => {
+		.then((dataRemoved) => {
+			if (!dataRemoved) throw new CustomError('No se encontro esa ID.', 400);
 			return res.status(201).send({
 				user_deleted: true,
 				msg: responseMsg.userDeleted,

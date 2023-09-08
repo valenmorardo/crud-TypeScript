@@ -127,14 +127,15 @@ router.use(
 
 router.get('/admin/getAllProfiles', controllers.getAllProfiles);
 router.delete(
-	'/admin/deleteAUser/:id',
-	middlewares.paramsUserIDValidator,
+	'/admin/deleteAUser/:userId',
+	middlewares.adminIDValidator,
 	controllers.deleteAUser,
 );
 router.get('/admin/getAllAdmins', controllers.getAllAdmins);
 
 router.post(
 	'/admin/handlerAdmins/add',
+	middlewares.userIdBodyValidator,
 	controllers.addAdmin,
 );
 
