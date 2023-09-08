@@ -131,11 +131,16 @@ router.delete(
 	middlewares.paramsUserIDValidator,
 	controllers.deleteAUser,
 );
-router.get('/admin/getAllAdmins', controllers.getAllAdmins)
-router.put(
-	'/admin/handlerIsAdmin/:id',
+router.get('/admin/getAllAdmins', controllers.getAllAdmins);
+
+router.post(
+	'/admin/handlerAdmins/add',
+	
+	controllers.addAdmin,
+);
+router.delete(
+	'/admin/handlerAdmins/remove/:userId',
 	middlewares.paramsUserIDValidator,
-	controllers.handlerIsAdmin,
 );
 //~~~~~~~~~
 
