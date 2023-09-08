@@ -12,7 +12,7 @@ export const deleteAUser = (
 
 	User_Model.destroy({ where: { id: userId } })
 		.then((dataRemoved) => {
-			if (!dataRemoved) throw new CustomError('No se encontro esa ID.', 400);
+			if (!dataRemoved) throw new CustomError('No se encontro a un usuario con esa ID.', 400);
 			return res.status(201).send({
 				user_deleted: true,
 				msg: responseMsg.userDeleted,

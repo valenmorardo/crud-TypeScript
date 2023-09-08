@@ -11,7 +11,8 @@ export const removeAdmin = (
 	const adminId: string = req.params.adminId;
 
 	Admin_Model.destroy({ where: { adminId } })
-		.then(() => {
+		.then((dataRemoved) => {
+			if (!dataRemoved) throw new CustomError('No se encontro un admin con esa ID.', 400);
 			return res.status(201).send({
 				admin_deleted: true,
 				msg: 'admin deleted',
