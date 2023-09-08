@@ -48,8 +48,10 @@ const error_gamePriceIsNotNumber: string =
 const error_gameGenresIsntArray: string =
 	'The genre or genres must be within an array.';
 const error_gameGenresEmpty: string = 'There must be at least one genre.';
-const error_gameGenresInvalid: string = `One or more genres are not valid. Genres available: ${Object.values(genres_videogames).map((genre) => ' ' + genre )}`;
- 
+const error_gameGenresInvalid: string = `One or more genres are not valid. Genres available: ${Object.values(
+	genres_videogames,
+).map((genre) => ' ' + genre)}`;
+
 // UUID
 const error_notUUID: string = 'That ID does not exist.';
 
@@ -57,88 +59,116 @@ const error_notUUID: string = 'That ID does not exist.';
 const error_notJWT: string = 'Access denied.';
 
 // CONTROLLERS || MIDDLEWARES.
-const error_MissingData: string =
-	'Missing data fields. The following fields are required';
+// msg defaults
+const error_MissingData = 'Missing data';
 
-// REGISTER
-const error_defaultMSGRegister: string = 'Failed to create the user';
+// REGISTER ~~~~~~~
+const error_defaultMSGRegister = 'Registration error.';
 const registerDataRequired: IAdditionalDataError = {
-	name: 'your name',
-	email: 'your email',
-	password: 'your password',
+	name: 'Your name',
+	email: 'Your email',
+	password: 'Your password',
 };
+const error_emailAlreadyExists = 'That email already exists. Try logging in.';
+const success_register = 'Successful registration.';
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-const error_emailAlreadyExists: string = 'Email already exists. Try to log in.';
-const success_register: string = 'The user was created successfully';
-
-// LOGIN
-const error_defaultMSGLogin: string = 'Login failed';
+// LOGIN ~~~~~~~
+const error_defaultMSGLogin = 'Login error.';
 const loginDataRequired: IAdditionalDataError = {
-	email: 'your email',
-	password: 'your password',
+	email: 'Your email',
+	password: 'Your password',
 };
-const error_emailDoesntExists: string =
-	'Couldn’t find an account associated with this email. Try again or create an account';
-const error_wrongData: string = 'Email or password is wronng. Try again';
-const success_login: string = 'You are now logged in.';
+const error_wrongData = 'The password or email is incorrect.';
+const error_emailDoesntExists = 'That email doesnt exist. Create an account.';
+const success_login = 'Successful login';
 
-//PROFILE
-const error_failCreateGame: string = 'Failed to create the video game.';
-const error_obtainUserGames: string = 'Failed to retrieve video games."';
+/// AUTH ~~
+const error_authFail = 'Authentication failed. Try logging in.';
+const error_accessDenied = 'Access Denied.';
 
-const error_authFail: string = 'Authentication failed.';
-const error_accessDenied: string = 'Access denied. Try to log in again';
-const error_profileData: string = 'Failed to retrieve profile data.';
-const error_gameMissingData: string =
-	'Game data fields are missing. The required fields are as follows';
-
-
+// PROFILE ~~~
+const error_profileData = 'Error retrieving profile information.';
 const gameDataRequired: IAdditionalDataError = {
-	name: 'string name of video game.',
-	description: 'string description of video game.',
-	price: 'price of video game.',
-	genres: `array genres of video games. Genres available: ${Object.values(genres_videogames).map((genre) => ' ' + genre )} `,
+	name: 'Your game name',
+	description: 'Your game description',
+	price: 'Your game price',
+	genres:
+		'Your game genres. Available genres: Action, Adventure, RPG, Strategy, Shooter, Sports, Simulation, Horror, Puzzle.',
 };
-const gameCreated: string = 'Game created';
-const notFoundGamesInProperty: string = 'No games found in your ownership.';
+const error_failCreateGame = 'Error while creating a video game.';
+const gameCreated = 'Video game created successfully.';
 
-const failDeleteGame: string = 'Failed to delete video game.';
+const notFoundGamesInProperty = 'No games found in your possession.';
+const error_obtainUserGames = 'Error retrieving the games.';
+const failDeleteGame = 'Error when trying to delete a video game';
+const noGameMatchID = 'No game found with that ID.';
+const gameSuccessDeleted = 'Video game deleted successfully.';
+const failUpdateGame = 'Failed to update the video game.';
+const updateGameSuccess = 'Video game updated successfully';
 
-const noGameMatchID: string = 'You do not own any video game with that ID';
+/// ADMIN ~~~~
+const accesDeniedADM = 'Access denied. You do not have access here.';
 
-const gameSuccessDeleted: string = 'Video game deleted successfully';
+const failToFoundUsers = 'Failed to retrieve the users';
+const failCheckID = 'Failed to check ID.';
+const userDeleted = 'User deleted successfully.';
+const failToDeleteUser = 'Failed to delete user.';
+const failToFoundAdmins = 'Failed to retrieve administrators';
+const newAdmin = 'New admin added successfully';
+const error_newAdminfail = 'Failed to add admin.';
 
-const failUpdateGame: string = 'Failed to update video game';
-const updateGameSuccess: string = 'Videogame success updated';
-
-// ADMIN
-const accesDeniedADM: string = "You don't have permission to access here";
-const accesDeniedDefault: string = 'Access denied';
-
-const failToFoundUsers: string = 'ADMIN SITE || No users found';
-const failToDeleteUser: string = 'Failed to delete user.';
-const noUserFoundMatchID: string = 'No user found with that ID';
-const userDeleted: string = 'User deleted successfully."';
-
-const userUpdated: string = 'User updated successfully.';
-const failUpdatedDataUser: string = 'Failed to modify user.';
-
-const failToFoundAdmins: string = 'ADMIN SITE || No admins found'
+const adminDeleted = 'Admin deleted successfully';
+const error_noAdminID = 'No admin found with that ID.';
+const failToAddAdmin = 'Failed to remove administrator.';
 
 export const responseMsg = {
-	failToFoundAdmins,
-	updateGameSuccess,
-	failUpdateGame,
+	failToAddAdmin,
+	error_noAdminID,
+	adminDeleted,
+	error_newAdminfail,
 
-	failUpdatedDataUser,
-	userUpdated,
-	noUserFoundMatchID,
+	newAdmin,
+	failToFoundAdmins,
+	failToDeleteUser,
+	failCheckID,
 	userDeleted,
 
-	failToDeleteUser,
 	failToFoundUsers,
+
 	accesDeniedADM,
-	accesDeniedDefault,
+
+	failUpdateGame,
+	updateGameSuccess,
+
+	noGameMatchID,
+	gameSuccessDeleted,
+
+	failDeleteGame,
+
+	notFoundGamesInProperty,
+	error_obtainUserGames,
+
+	error_profileData,
+	gameDataRequired,
+	error_failCreateGame,
+	gameCreated,
+
+	error_defaultMSGRegister,
+	error_MissingData,
+	registerDataRequired,
+	error_emailAlreadyExists,
+	success_register,
+
+	error_defaultMSGLogin,
+	loginDataRequired,
+	error_wrongData,
+	error_emailDoesntExists,
+	success_login,
+
+	error_authFail,
+	error_accessDenied,
+
 	error_nameIsEmpty,
 	error_nameOnlyLetters,
 	error_nameNotWhitespaces,
@@ -160,30 +190,4 @@ export const responseMsg = {
 	error_gameGenresInvalid,
 	error_notUUID,
 	error_notJWT,
-
-	error_MissingData,
-
-	error_defaultMSGRegister,
-	registerDataRequired,
-	error_emailAlreadyExists,
-	success_register,
-
-	error_defaultMSGLogin,
-	loginDataRequired,
-	error_emailDoesntExists,
-	error_wrongData,
-	success_login,
-
-	error_authFail,
-	error_accessDenied,
-	error_profileData,
-	error_failCreateGame,
-	error_gameMissingData,
-	gameDataRequired,
-	gameCreated,
-	notFoundGamesInProperty,
-	error_obtainUserGames,
-	failDeleteGame,
-	noGameMatchID,
-	gameSuccessDeleted,
 };

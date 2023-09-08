@@ -23,7 +23,7 @@ export const verifyIsAdmin = (
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = responseMsg.accesDeniedDefault;
+			error.message = responseMsg.error_accessDenied;
 			return next(error);
 		});
 };

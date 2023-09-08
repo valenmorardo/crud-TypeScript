@@ -16,7 +16,6 @@ import { getAllAdmins } from './admin/getAllAdmins.controller';
 
 import { removeAdmin } from './admin/removeAdmin.controller';
 
-
 export {
 	registerUser,
 	loginUser,

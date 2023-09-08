@@ -14,7 +14,7 @@ export const createGameFieldsValidator = (
 	try {
 		if (!name || !description || !price || !genres)
 			throw new CustomError(
-				responseMsg.error_gameMissingData,
+				responseMsg.error_MissingData,
 				400,
 				responseMsg.gameDataRequired,
 			);

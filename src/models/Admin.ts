@@ -12,13 +12,10 @@ const Admin_Model = Database.define<Model, IAdminAttributes>(
 			primaryKey: true,
 			unique: true,
 		},
-
 	},
 	{
 		timestamps: false,
 	},
 );
-
-
 
 export default Admin_Model;

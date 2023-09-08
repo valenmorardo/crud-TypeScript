@@ -9,15 +9,13 @@ export const getAllAdmins = (
 	res: Response,
 	next: NextFunction,
 ): Response | void => {
-
 	Admin_Model.findAll({
 		include: {
 			model: User_Model,
-			attributes: ['name', 'email']
-		}
+			attributes: ['name', 'email'],
+		},
 	})
 		.then((admins) => {
-            
 			const allAdmins = admins.map((admin) => {
 				return admin.dataValues;
 			});

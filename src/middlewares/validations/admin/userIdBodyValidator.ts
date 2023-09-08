@@ -13,7 +13,7 @@ export const userIdBodyValidator = (
 
 	try {
 		validations.validateIsUUID(userId);
-        
+
 		const userFound = User_Model.findByPk(userId);
 		if (!userFound)
 			throw new CustomError('No se encontro un usuario con esa ID.', 400);

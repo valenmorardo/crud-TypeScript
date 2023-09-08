@@ -17,7 +17,7 @@ export const updateAGame = (
 	try {
 		if (!name || !description || !price || !genres)
 			throw new CustomError(
-				responseMsg.error_gameMissingData,
+				responseMsg.error_MissingData,
 				400,
 				responseMsg.gameDataRequired,
 			);
@@ -35,7 +35,8 @@ export const updateAGame = (
 		{ name, price, description, genres },
 		{ where: { id: gameId } },
 	)
-		.then(() => {
+		.then((resultado) => {
+			if (!resultado) throw new CustomError(responseMsg.noGameMatchID, 400);
 			return res.status(201).send({
 				user_isAdmin_updated: true,
 				message: responseMsg.updateGameSuccess,

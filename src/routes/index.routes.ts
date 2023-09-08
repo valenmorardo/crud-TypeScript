@@ -112,11 +112,6 @@ router.put(
 );
 //~~~~~~~~~
 
-// home // all games
-/* router.use('/allGames', middlewares.verifyAuthToken, middlewares.payloadAuthTokenVerify)
-	router.get('/allGames'); */
-//~~~~~~~~~
-
 // Admin routes
 router.use(
 	'/admin',
@@ -142,7 +137,7 @@ router.post(
 router.delete(
 	'/admin/handlerAdmins/remove/:adminId',
 	middlewares.adminIDValidator,
-	controllers.removeAdmin
+	controllers.removeAdmin,
 );
 //~~~~~~~~~
 

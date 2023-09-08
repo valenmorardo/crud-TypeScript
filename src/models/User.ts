@@ -28,7 +28,6 @@ const User_Model = Database.define<Model, IUserAttributes>(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-
 	},
 	{
 		timestamps: false,
@@ -40,8 +39,7 @@ User_Model.hasMany(Videogame_Model, {
 	onDelete: 'CASCADE',
 });
 
-
-User_Model.hasOne(Admin_Model)
-Admin_Model.belongsTo(User_Model)
+User_Model.hasOne(Admin_Model);
+Admin_Model.belongsTo(User_Model);
 
 export default User_Model;

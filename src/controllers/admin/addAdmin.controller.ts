@@ -17,12 +17,12 @@ export const addAdmin = (
 	})
 		.then((newAdmin) => {
 			return res.status(201).send({
-				msg: 'New admin added.',
+				msg: responseMsg.newAdmin,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = 'Fallo a la hora de agregar admin.';
+			error.message = responseMsg.error_newAdminfail;
 			return next(error);
 		});
 };

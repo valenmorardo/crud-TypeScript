@@ -12,12 +12,12 @@ export const adminIDValidator = (
 	const adminId: string = req.params.adminId;
 
 	try {
-		validations.validateIsUUID(userId? userId : adminId);
+		validations.validateIsUUID(userId ? userId : adminId);
 
 		return next();
 	} catch (error: any) {
 		error.error_message = error.message;
-		error.message = "fallo a la hora de comprobar ID";
+		error.message = responseMsg.failCheckID;
 		return next(error);
 	}
 };

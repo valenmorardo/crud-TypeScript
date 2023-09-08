@@ -12,15 +12,15 @@ export const removeAdmin = (
 
 	Admin_Model.destroy({ where: { adminId } })
 		.then((dataRemoved) => {
-			if (!dataRemoved) throw new CustomError('No se encontro un admin con esa ID.', 400);
+			if (!dataRemoved) throw new CustomError(responseMsg.error_noAdminID, 400);
 			return res.status(201).send({
 				admin_deleted: true,
-				msg: 'admin deleted',
+				msg: responseMsg.adminDeleted,
 			});
 		})
 		.catch((error) => {
 			error.error_message = error.message;
-			error.message = "fallo a la hora de remover administrador";
+			error.message = responseMsg.failToAddAdmin;
 			return next(error);
 		});
 };

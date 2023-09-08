@@ -20,7 +20,6 @@ export async function loginUser(
 			message: responseMsg.success_login,
 		});
 	} catch (error: any) {
-		
 		error.error_message = error.message;
 		error.message = responseMsg.error_defaultMSGLogin;
 	}
