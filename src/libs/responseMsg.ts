@@ -123,7 +123,10 @@ const userDeleted: string = 'User deleted successfully."';
 const userUpdated: string = 'User updated successfully.';
 const failUpdatedDataUser: string = 'Failed to modify user.';
 
+const failToFoundAdmins: string = 'ADMIN SITE || No admins found'
+
 export const responseMsg = {
+	failToFoundAdmins,
 	updateGameSuccess,
 	failUpdateGame,
 

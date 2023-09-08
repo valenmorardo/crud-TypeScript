@@ -12,6 +12,8 @@ import { deleteAUser } from './admin/deleteAUser.controller';
 import { handlerIsAdmin } from './admin/handlerIsAdmin.controller';
 
 import { updateAGame } from './profile/updateAGame.controller';
+import { getAllAdmins } from './admin/getAllAdmins.controller';
+
 
 export {
 	registerUser,
@@ -24,4 +26,5 @@ export {
 	deleteAUser,
 	handlerIsAdmin,
 	updateAGame,
+	getAllAdmins,
 };
