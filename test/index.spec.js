@@ -39,8 +39,8 @@ describe('GET /api', () => {
 });
 
 describe('POST /register', () => {
-	describe('wrong data', () => {
-		test('missing data. Should respond with 400 bad request', (done) => {
+	describe('MISSING data', () => {
+		test('all data missing. Should respond with 400 bad request', (done) => {
 			request(server)
 				.post('/api/register')
 				.send()
@@ -84,5 +84,20 @@ describe('POST /register', () => {
 					done();
 				});
 		});
+	});
+
+	describe('NAME incorrect format', () => {
+		test('empty field. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({ name: ' ', email: 'test@gmail.com', password: 'Test12345.' })
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+
+
 	});
 });
