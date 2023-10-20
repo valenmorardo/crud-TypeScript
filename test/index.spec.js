@@ -21,8 +21,19 @@ describe('GET /api', () => {
 			.send()
 			.expect(200)
 			.end((err) => {
-                if(err) done(err);
-                done()
-            });
+				if (err) done(err);
+				done();
+			});
+	});
+
+	test('should responde with content type json in body', (done) => {
+		request(server)
+			.get('/api')
+			.send()
+			.end((err, res) => {
+				if (err) done(err);
+				expect(res.headers['content-type']).toMatch('json');
+				done();
+			});
 	});
 });
