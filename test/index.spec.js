@@ -98,6 +98,19 @@ describe('POST /register', () => {
 				});
 		});
 
+		test('incorrect format. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({
+					name: 'Test 1test9.-}!',
+					email: 'test@gmail.com',
+					password: 'Test12345.',
+				}).end((err, res) => {
+                    if(err) done(err);
 
+                    expect(res.statusCode).toBe(400);
+                    done()
+                });
+		});
 	});
 });
