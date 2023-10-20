@@ -37,3 +37,19 @@ describe('GET /api', () => {
 			});
 	});
 });
+
+describe('POST /register', () => {
+	describe('wrong data', () => {
+		test('missing data. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send()
+				.end((err, res) => {
+                    if(err) done(err);
+
+                    expect(res.statusCode).toBe(400);
+                    done()
+                });
+		});
+	});
+});
