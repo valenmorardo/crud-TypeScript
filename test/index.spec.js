@@ -62,6 +62,18 @@ describe('POST /register', () => {
 					done();
 				});
 		});
-        
+
+		test('EMAIL field missing. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({ name: 'test name', password: 'Test1234' })
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+
+
 	});
 });
