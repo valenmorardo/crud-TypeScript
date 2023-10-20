@@ -45,11 +45,23 @@ describe('POST /register', () => {
 				.post('/api/register')
 				.send()
 				.end((err, res) => {
-                    if(err) done(err);
+					if (err) done(err);
 
-                    expect(res.statusCode).toBe(400);
-                    done()
-                });
+					expect(res.statusCode).toBe(400);
+					done();
+				});
 		});
+
+		test('NAME field missing. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({ email: 'test@hotmail.com', password: 'Test1234' })
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+        
 	});
 });
