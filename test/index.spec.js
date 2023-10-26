@@ -119,7 +119,7 @@ describe('POST /register', () => {
 		test('empty field. Should respond with 400 bad request', (done) => {
 			request(server)
 				.post('/api/register')
-				.send({ name: 'Test Test', password: 'Test12345.' })
+				.send({ name: 'Test Test', password: 'Test12345.', email: ' ' })
 				.end((err, res) => {
 					if (err) done(err);
 					expect(res.statusCode).toBe(400);
@@ -142,4 +142,18 @@ describe('POST /register', () => {
 				});
 		});
 	});
+
+
+	describe('PASSWORD incorrect format', () => {
+		test('empty field. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({ name: 'Test Test', email: 'test@gmail.com', password: ' '})
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+	})
 });
