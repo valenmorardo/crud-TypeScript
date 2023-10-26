@@ -143,17 +143,44 @@ describe('POST /register', () => {
 		});
 	});
 
-
 	describe('PASSWORD incorrect format', () => {
 		test('empty field. Should respond with 400 bad request', (done) => {
 			request(server)
 				.post('/api/register')
-				.send({ name: 'Test Test', email: 'test@gmail.com', password: ' '})
+				.send({ name: 'Test Test', email: 'test@gmail.com', password: ' ' })
 				.end((err, res) => {
 					if (err) done(err);
 					expect(res.statusCode).toBe(400);
 					done();
 				});
 		});
-	})
+
+		test('incorrect format. Should respond with 400 bad request', (done) => {
+			const incorrectFormat = [
+				{ name: 'Test Test', email: 'testgmail', password: 'test' },
+				{
+					name: 'Test Test',
+					email: 'testgmail',
+					password: 'Test',
+				},
+				{
+					name: 'Test Test',
+					email: 'testgmail',
+					password: 'Test1',
+				},
+			];
+
+			incorrectFormat.forEach((element) => {
+				request(server)
+					.post('/api/register')
+					.send(element)
+					.end((err, res) => {
+						if (err) done(err);
+						expect(res.statusCode).toBe(400);
+					});
+			});
+
+			done();
+		});
+	});
 });
