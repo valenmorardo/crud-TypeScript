@@ -9,7 +9,6 @@
 		"dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules ./src/index.ts",
 		"lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-
 		"test": "set NODE_OPTIONS=--experimental-vm-modules && npx jest"
 	},
 	"author": "",
@@ -32,6 +31,7 @@
 		"@types/validator": "^13.11.1",
 		"@typescript-eslint/eslint-plugin": "^6.4.0",
 		"@typescript-eslint/parser": "^6.4.0",
+		"babel-jest": "^29.7.0",
 		"babel-plugin-module-resolver": "^5.0.0",
 		"dotenv": "^16.3.1",
 		"eslint": "^8.47.0",
