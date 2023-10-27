@@ -39,6 +39,12 @@ describe('GET /api', () => {
 });
 
 describe('POST /register', () => {
+	const correctData = {
+		name: 'Test Name',
+		email: 'test@email.com',
+		password: 'Test123456.',
+	};
+
 	describe('MISSING data', () => {
 		test('all data missing. Should respond with 400 bad request', (done) => {
 			request(server)
@@ -181,6 +187,19 @@ describe('POST /register', () => {
 			});
 
 			done();
+		});
+	});
+
+	describe('Succesfull register', () => {
+		test('should respond with status code 201', (done) => {
+			request(server)
+				.post('/api/register')
+				.send(correctData)
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(201);
+					done();
+				});
 		});
 	});
 });
