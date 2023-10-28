@@ -4,7 +4,6 @@ import server from '../src/config/server.cfg.ts';
 describe('GET /', () => {
 	test('should return status code 200', async () => {
 		const response = await request(server).get('/').send();
-		console.log(response);
 		expect(response.statusCode).toBe(200);
 	});
 
@@ -37,6 +36,8 @@ describe('GET /api', () => {
 			});
 	});
 });
+
+import User_Model from '@models/User';
 
 describe('POST /register', () => {
 	const correctData = {
@@ -198,6 +199,7 @@ describe('POST /register', () => {
 				.end((err, res) => {
 					if (err) done(err);
 					expect(res.statusCode).toBe(201);
+					User_Model.destroy({where: {email: correctData.email}});
 					done();
 				});
 		});
