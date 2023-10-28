@@ -231,7 +231,17 @@ describe('POST /login', () => {
 				});
 		});
 
-
+		test('PASSWORD field missing. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/register')
+				.send({email: 'test@email.com'})
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+		
 
 
 	});
