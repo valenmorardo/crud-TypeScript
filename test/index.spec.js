@@ -199,9 +199,28 @@ describe('POST /register', () => {
 				.end((err, res) => {
 					if (err) done(err);
 					expect(res.statusCode).toBe(201);
-					User_Model.destroy({where: {email: correctData.email}});
 					done();
 				});
 		});
 	});
 });
+
+
+describe('POST /login', () => {
+
+	describe('MISSING data', () => {
+		test('all data missing. Should respond with 400 bad request', (done) => {
+			request(server)
+				.post('/api/login')
+				.send()
+				.end((err, res) => {
+					if (err) done(err);
+
+					expect(res.statusCode).toBe(400);
+					done();
+				});
+		});
+
+
+	});
+})
