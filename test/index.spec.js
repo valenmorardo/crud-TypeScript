@@ -37,14 +37,14 @@ describe('GET /api', () => {
 	});
 });
 
-import User_Model from '@models/User';
+const correctData = {
+	name: 'Test Name',
+	email: 'test@email.com',
+	password: 'Test123456.',
+};
+
 
 describe('POST /register', () => {
-	const correctData = {
-		name: 'Test Name',
-		email: 'test@email.com',
-		password: 'Test123456.',
-	};
 
 	describe('MISSING data', () => {
 		test('all data missing. Should respond with 400 bad request', (done) => {
@@ -205,9 +205,9 @@ describe('POST /register', () => {
 	});
 });
 
+import User_Model from '@models/User';
 
 describe('POST /login', () => {
-
 	describe('MISSING data', () => {
 		test('all data missing. Should respond with 400 bad request', (done) => {
 			request(server)
@@ -222,7 +222,7 @@ describe('POST /login', () => {
 		});
 		test('EMAIL field missing. Should respond with 400 bad request', (done) => {
 			request(server)
-				.post('/api/register')
+				.post('/api/login')
 				.send({ password: 'Test123456.' })
 				.end((err, res) => {
 					if (err) done(err);
@@ -233,16 +233,27 @@ describe('POST /login', () => {
 
 		test('PASSWORD field missing. Should respond with 400 bad request', (done) => {
 			request(server)
-				.post('/api/register')
-				.send({email: 'test@email.com'})
+				.post('/api/login')
+				.send({ email: 'test@email.com' })
 				.end((err, res) => {
 					if (err) done(err);
 					expect(res.statusCode).toBe(400);
 					done();
 				});
 		});
-		
-
-
 	});
-})
+
+	describe('succsessfull login', () => {
+		test('should respond with status code 200', (done) => {
+			request(server)
+				.post('/api/login')
+				.send({ email: correctData.email, password: correctData.password })
+				.end((err, res) => {
+					if (err) done(err);
+					expect(res.statusCode).toBe(200);
+					User_Model.destroy({where: {email: correctData.email}})
+					done();
+				});
+		});
+	});
+});
